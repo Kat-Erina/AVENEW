@@ -1,7 +1,9 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 
 const Footer = () => {
+  const t=useTranslations('footer')
   return (
     <footer className='bg-black flex flex-col md:flex-row justify-between md:items-center px-6 md:px-10 py-6 md:h-20 text-[#E5E0CA] font-medium gap-5 md:gap-0'>
       
@@ -13,7 +15,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-sm md:text-base text-center md:text-right'>ყველა უფლება დაცულია</p>
+      <p className='text-sm md:text-base text-center md:text-right'>{t('rights')}</p>
 
     </footer>
   )

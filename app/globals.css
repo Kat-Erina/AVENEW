@@ -16,6 +16,11 @@
 
 @theme inline {
     --font-noto:'Noto Serif';
+      --color-dark-red: var(--dark-red);
+  --color-greenish: var(--greenish);
+  --color-yellowish: var(--yellowish);
+  --color-creamy: var(--creamy);
+  --color-grey: var(--grey);
 }
 @layer base {
   body {

@@ -4,9 +4,59 @@
     "loading": "Loading...",
     "defaultSubtitle": "A Rooted Identity For Timeless Living",
     "defaultTitle": "WHERE KAKHETI COMES TOGETHER",
-    "chooseApartment": "Choose an apartment",
-    "watchVideo": "Watch video",
-    "requestCall": "Request a call"
-  }
+    "requestCall": "Request a call", 
+    "city":"Lorem", 
+    "avenue":"Lorem Ipsum"
+  },
+ 
+   "terms": {
+    "items": [
+      { "title": "0%", "text": "lorem ipsum" },
+      { "title": "1-3%", "text": "lorem ipsum" },
+      { "title": "7%", "text": "lorem ipsum" }
+    ]
+  }, 
+ "amenities":{
+ "items": [
+      { "title": "First Recreational Bridge", "text": "lorem ipsum lorem ipsum" },
+      { "title": "Lorem Ipsum Lorem Ipsum ", "text": "lorem ipsum" },
+      { "title": "Lorem Ipsum Lorem Ipsum", "text": "lorem ipsum" }
+    ]
+  },
+  "form": {
+  "name": "Name",
+  "tel": "Phone number",
+  "bedrooms": "Bedrooms",
+  "contactVia": "Request a call",
+   "contactOptions": ["Call", "Viber", "WhatsApp"],
+    "languageOptions": ["Georgian", "English"],
+        "requestACall":"Request a call",
+        "errors": {
+  "nameRequired": "Name is required",
+  "telRequired": "Phone number is required",
+  "telInvalid": "Phone number can only contain numbers"
+ 
+
+},
+ "successMessage": "Your request has been sent"
+
+},
+"flatSumUp":{
+   "items": [
+      { "title": "400 000 m2", "text": "Lorem Ipsum" },
+      { "title": "3000 Flats", "text": "lorem ipsum" },
+      { "title": "25 000 m2", "text": "lorem ipsum" }
+    ]
+},
+"flat":{
+"flat":"Flat",
+"balcony":"Balcony", 
+"livingSpace":"Lorem",
+"bedroom":"Bedroom"
+
+},
+"footer":{
+  "rights":"All Rights Reserved"
+}
   
 }

@@ -3,6 +3,7 @@ import { AppProvider } from "@/context/AppContext";
 import { NextIntlClientProvider } from "next-intl";
 import {locales} from '@/i18n'
 import { getMessages } from 'next-intl/server';
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -26,6 +27,7 @@ export default async function LocaleLayout({ children, params }) {
     <html lang={locale}>
       <body className={`${notoSerif.variable} ${notoSerif.className} antialiased`}>
         <AppProvider>
+             <Toaster position="top-right" />
           <NextIntlClientProvider messages={messages} locale={locale}>
             {children}
           </NextIntlClientProvider>
