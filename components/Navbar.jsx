@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <header className='bg-black h-20 flex justify-between items-center px-10'>
 
-        <Image src={'/logo.png'} width={180} height={100} alt='' />
+        <Image src={'/logo.png'} width={180} height={100} alt='' className='w-35 md:w-39 lg:w-44' />
 
         <span>ENG</span>
 
