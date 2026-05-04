@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
-:root {
+
+
+  :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dark-red: #331516;
+  --greenish:#2C3522;
+    --yellowish:#E8E6DD;
+   --creamy:#E5E0CA ;
+   --grey:#676767
+
 }
 
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --font-noto:'Noto Serif';
+}
+@layer base {
+  body {
+    font-family: var(--font-noto), serif;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +33,52 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+   font-family: var(--font-noto), serif;
+}
+
+/* Noto Serif Font classes */
+
+.font-noto-hair {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 100 !important;
+}
+
+.font-noto-thin {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 200 !important;
+}
+
+.font-noto-light {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.font-noto-regular {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.font-noto-medium {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.font-noto-semibold {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.font-noto-bold {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.font-noto-xbold {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.font-noto-black {
+  font-family: 'Noto Serif', sans-serif !important;
+  font-weight: 900 !important;
 }
