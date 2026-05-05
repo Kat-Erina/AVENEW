@@ -1,4 +1,6 @@
 import AmenitiesSection from '@/components/AmenitiesSection'
+import AnimatedSection from '@/components/AnimatedSection'
+import Contact from '@/components/Contact'
 import FlatCarousel from '@/components/FlatCarousel'
 import FlatsSumUp from '@/components/FlatsSumUp'
 import Footer from '@/components/Footer'
@@ -15,8 +17,14 @@ const Home = () => {
     <div>
         <Navbar></Navbar>
         <Hero></Hero>
-        <Terms/>
-        <AmenitiesSection/>
+        <AnimatedSection direction="left" delay={0.2}>
+           <Terms/>
+        </AnimatedSection>
+       
+       
+        <AnimatedSection direction="right" delay={0.2}>
+           <AmenitiesSection/>
+        </AnimatedSection>
      
       <div className='relative flex justify-center bg-dark-red'>
         <div className='hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25' >
@@ -26,14 +34,20 @@ const Home = () => {
       
          <FlatCarousel />
           <FlatsSumUp/>
-          <div className='py-12 bg-white'>
+          <AnimatedSection direction='left' delay={0.2}>
+                 <div className='py-12 bg-white'>
             <div className='h-[566px] py-10 relative flex justify-center bg-[url(/Content.png)] bg-cover bg-center'>
         <div className='hidden xl:block absolute bottom-0 lg:right-37.75 w-33.25 h-106.25' >
              <Image src='/Vector (5).png' fill alt=''></Image></div>       
          <Form width='483px'></Form>
       </div>
           </div>
+          </AnimatedSection>
+     
           <MapSection></MapSection>
+          <AnimatedSection direction="right" delay={0.2}>
+            <Contact/>
+          </AnimatedSection>
           <Footer/>
     </div>
    

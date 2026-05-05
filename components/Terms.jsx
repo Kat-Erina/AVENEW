@@ -17,7 +17,7 @@ const Terms = () => {
             <span className="text-[62px] lg:text-[72px] text-yellowish font-medium leading-none">
               {t(`items.${i}.title`)}
             </span>
-            <span className="text-[22px] uppercase text-yellowish">
+            <span className="text-[22px] font-helvetica uppercase text-yellowish">
               {t(`items.${i}.text`)}
             </span>
           </p>

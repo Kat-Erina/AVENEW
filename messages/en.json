@@ -55,6 +55,11 @@
 "bedroom":"Bedroom"
 
 },
+"contact":{
+  "title":"Contact",
+  "info":"Information",
+  "address":"David Aghmashenebeli street #198"
+},
 "footer":{
   "rights":"All Rights Reserved"
 }

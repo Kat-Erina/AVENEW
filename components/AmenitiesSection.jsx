@@ -40,7 +40,7 @@ const AmenitiesSection = () => {
           <div className="absolute -bottom-17 left-0 right-0 flex justify-center">
             <div className="bg-white p-4 text-center w-fit">
               <h2 className="text-black font-bold text-2xl mb-2 whitespace-pre-line">{t(`items.${i}.title`)}</h2>
-              <p className="text-[#676767] text-lg">{t(`items.${i}.text`)}</p>
+              <p className="text-[#676767] text-lg font-helvetica">{t(`items.${i}.text`)}</p>
             </div>
           </div>
         </div>
