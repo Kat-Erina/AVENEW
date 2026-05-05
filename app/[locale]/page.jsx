@@ -34,6 +34,10 @@ const Home = () => {
       
          <FlatCarousel />
           <FlatsSumUp/>
+
+                    <AnimatedSection direction="right" delay={0.2}>
+            <Contact/>
+          </AnimatedSection>
           <AnimatedSection direction='left' delay={0.2}>
                  <div className='py-12 bg-white'>
             <div className='h-[566px] py-10 relative flex justify-center bg-[url(/Content.png)] bg-cover bg-center'>
@@ -45,9 +49,7 @@ const Home = () => {
           </AnimatedSection>
      
           <MapSection></MapSection>
-          <AnimatedSection direction="right" delay={0.2}>
-            <Contact/>
-          </AnimatedSection>
+
           <Footer/>
     </div>
    
