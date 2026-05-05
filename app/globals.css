@@ -149,3 +149,13 @@ body {
   font-family: 'Noto Serif', sans-serif !important;
   font-weight: 900 !important;
 }
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  /* font-family: "Noto Sans Georgian"; */
+}
+
+button:hover{
+  cursor: pointer;
+}

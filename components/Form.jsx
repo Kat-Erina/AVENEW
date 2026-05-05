@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { useMessages, useTranslations } from 'next-intl';
 import toast from 'react-hot-toast';
 
+import { ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+
 
 const bedroomOptions = ['1', '2', '3', '4', '5'];
 
@@ -17,13 +20,13 @@ const CustomSelect = ({ options, value, onChange, placeholder }) => {
 
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       <div
         className="h-14 px-4 border-b border-white/30 flex items-center justify-between cursor-pointer text-yellowish"
         onClick={() => setOpen(!open)}
       >
         <span className="text-sm tracking-widest uppercase text-[16px] font-normal  font-helvetica-geo "> {!value ? placeholder : value}</span>
-        <span className="text-lg text-yellowish"> {open ? '︿' : '﹀'}</span>
+        <span className="text-lg text-yellowish"> {open ? <ChevronUp/> : <ChevronDown/>}</span>
       </div>
       {open && (
         <div className="absolute z-10 w-full bg-dark-red border border-white/20">
@@ -79,7 +82,7 @@ const validate = () => {
 
   return (
 
-    <div style={{ maxWidth: width }} className="w-full mx-auto bg-[#331516] flex flex-col pt-13 pb-10">
+    <div style={{ maxWidth: width }} className="w-full mx-auto bg-[#331516] flex flex-col pt-13 pb-10 z-10">
 
 <div className="flex items-center border-b border-white/30 h-14 px-4 w-full">
   <input

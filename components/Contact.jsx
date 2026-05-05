@@ -8,14 +8,14 @@ const Contact = () => {
     const t=useTranslations('contact')
   const socials = [
     {
-      icon: "/Group 9.png",
+      icon: "/icons/Group 9.svg",
       link: "https://www.facebook.com/",
     },
     {
-      icon: "/Group 10.png",
+      icon: "/icons/Group 10.svg",
       link: "https://www.instagram.com/",
     },
-    { icon: "/Group 12.png", link: "https://www.tiktok.com/" },
+    { icon: "/icons/Group 12.svg", link: "https://www.tiktok.com/" },
   ];
 
   return (
@@ -27,7 +27,7 @@ const Contact = () => {
         </h3>
         <div className="flex mt-[38px] flex-col items-center mb-10 uppercase ">
           <p className="text-[#776F40] uppercase">0322 20 40 20</p>
-          <p className="text-[#776F40] uppercase font-normal  font-helvetica-geo">{t('address')}</p>
+          <p className="text-[#776F40] uppercase font-normal  font-helvetica-geo ">{t('address')}</p>
         </div>
         <p className="text-[#776F40] font-normal  font-helvetica-geo">info@avenew.ge</p>
       </section>

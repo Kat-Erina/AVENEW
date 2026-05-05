@@ -8,7 +8,7 @@ const FlatsSumUp = () => {
    const messages = useMessages();
    
    const items = messages.flatSumUp.items; 
-   const images=['/Vector (2).png', '/Vector (3).png', '/Vector (4).png']
+   const images=['/icons/Isolation_Mode.svg', '/icons/Vector.svg','/icons/Isolation_Mode (1).svg']
  
       return (
       <div className="flex flex-col md:flex-row justify-around items-center bg-dark-red">

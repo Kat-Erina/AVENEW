@@ -11,9 +11,9 @@
  
    "terms": {
     "items": [
-      { "title": "0%", "text": "lorem ipsum" },
-      { "title": "1-3%", "text": "lorem ipsum" },
-      { "title": "7%", "text": "lorem ipsum" }
+      { "title": "0%", "text": "lorem", "drop":"lorem"  },
+      { "title": "1-3%", "text": "lorem", "drop":"lorem" },
+      { "title": "7%", "text": "lorem ", "drop":"lorem"  }
     ]
   }, 
  "amenities":{

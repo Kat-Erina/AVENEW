@@ -32,18 +32,23 @@ const Home = () => {
          <Form width='483px'></Form>
       </div>
       
-         <FlatCarousel />
+               <AnimatedSection direction="left" delay={0.2}>
+             <FlatCarousel />
+          </AnimatedSection>
           <FlatsSumUp/>
 
                     <AnimatedSection direction="right" delay={0.2}>
             <Contact/>
           </AnimatedSection>
           <AnimatedSection direction='left' delay={0.2}>
-                 <div className='py-12 bg-white'>
-            <div className='h-[566px] py-10 relative flex justify-center bg-[url(/Content.png)] bg-cover bg-center'>
+                 <div className='pb-12 bg-white'>
+                    
+
+            <div className='h-[566px] py-10 relative flex justify-center bg-[url(/img4.png)] bg-cover'>
+             <div className='absolute inset-0 bg-black/40' />
         <div className='hidden xl:block absolute bottom-0 lg:right-37.75 w-33.25 h-106.25' >
              <Image src='/Vector (5).png' fill alt=''></Image></div>       
-         <Form width='483px'></Form>
+         <Form    width='483px'></Form>
       </div>
           </div>
           </AnimatedSection>
