@@ -37,7 +37,7 @@ const AmenitiesSection = () => {
             className={`object-cover ${item.position}`}
           />
           {/* Overlay text at bottom */}
-          <div className="absolute md:-bottom-13  -bottom-14 left-0 right-0 flex justify-center">
+          <div className="absolute md:-bottom-13  -bottom-13 left-0 right-0 flex justify-center">
             <div className="bg-white p-3 md:p-3 text-center w-fit">
               <h2 className="text-black font-bold text-lg  md:text-xl mb-2 whitespace-pre-line">{t(`items.${i}.title`)}</h2>
               <p className="font-normal  font-helvetica-geo 
