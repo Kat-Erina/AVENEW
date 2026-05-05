@@ -27,9 +27,9 @@ const AmenitiesSection = () => {
     const t = useTranslations('amenities');
 
   return (
-    <section className="bg-white flex justify-center gap-5 max-md:gap-20 items-center  max-md:flex-col pt-16 pb-30 max-md:px-3">
+    <section className="bg-white flex justify-center gap-5 max-md:gap-20 items-center  max-md:flex-col pt-16 pb-30 max-lg:px-3   ">
       {amenties.map((item,i) => (
-        <div key={item.id} className="relative max-w-110 w-full h-110  ">
+        <div key={item.id} className="relative max-w-115 w-full h-110 transition duration-200 hover:scale-105 hover:shadow-2xl">
           <Image
             src={item.image}
             fill
@@ -37,10 +37,10 @@ const AmenitiesSection = () => {
             className={`object-cover ${item.position}`}
           />
           {/* Overlay text at bottom */}
-          <div className="absolute -bottom-17 left-0 right-0 flex justify-center">
-            <div className="bg-white p-4 text-center w-fit">
-              <h2 className="text-black font-bold text-2xl mb-2 whitespace-pre-line">{t(`items.${i}.title`)}</h2>
-              <p className="text-[#676767] text-lg">{t(`items.${i}.text`)}</p>
+          <div className="absolute md:-bottom-13  -bottom-14 left-0 right-0 flex justify-center">
+            <div className="bg-white p-3 md:p-3 text-center w-fit">
+              <h2 className="text-black font-bold text-lg  md:text-xl mb-2 whitespace-pre-line">{t(`items.${i}.title`)}</h2>
+              <p className="text-[#676767] text-sm md:text-lg">{t(`items.${i}.text`)}</p>
             </div>
           </div>
         </div>
