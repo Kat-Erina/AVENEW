@@ -25,7 +25,7 @@ const Hero = () => {
         >
           <div style={{ maxWidth: '483px'  }} className="w-full bg-dark-red p-[20px]" onClick={(e) => e.stopPropagation()}>
             <div className="w-full flex justify-end">
-               <Image onClick={()=>setModalOpen(false)} alt='icon' height={20} width={20} src={'/icons/icon.png'}></Image>
+               <Image onClick={()=>setModalOpen(false)} alt='icon' height={20} width={20} src={'/icons/Icon.png'}></Image>
             </div>
            
             <Form width="600px" />
