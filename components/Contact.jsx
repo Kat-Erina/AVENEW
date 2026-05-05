@@ -25,7 +25,7 @@ const Contact = () => {
           <span className="font-helvetica">{t('title')}</span>
           <br></br> {t('info')}
         </h3>
-        <div className="flex mt-[39px] flex-col items-center mb-10 uppercase ">
+        <div className="flex mt-[38px] flex-col items-center mb-10 uppercase ">
           <p className="text-[#776F40] uppercase">0322 20 40 20</p>
           <p className="text-[#776F40] uppercase font-normal  font-helvetica-geo ">{t('address')}</p>
         </div>
