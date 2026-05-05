@@ -167,9 +167,9 @@ export default function FlatCarousel() {
                 <span className="text-[26px] text-black">{t('flat')}</span>
                 <span className="text-[16px] text-black">{flat.area} M²</span>
               </div>
-              <p className="text-sm text-grey mb-1">{t('balcony')}: {flat.balcony} M²</p>
-              <p className="text-sm text-grey mb-1">{t('livingSpace')}: {flat.living} M²</p>
-              <p className="text-sm text-grey">{t('bedroom')}: {flat.bedroom}</p>
+              <p className="text-sm text-grey mb-1 font-normal  font-helvetica-geo uppercase">{t('balcony')}: {flat.balcony} M²</p>
+              <p className="font-normal  font-helvetica-geo text-sm text-grey mb-1">{t('livingSpace')}: {flat.living} M²</p>
+              <p className="font-normal  font-helvetica-geo text-sm text-grey">{t('bedroom')}: {flat.bedroom}</p>
             </div>
           </Link>
         ))}

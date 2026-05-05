@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
@@ -15,7 +17,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-sm md:text-base text-center md:text-right'>{t('rights')}</p>
+      <p className='text-sm md:text-base text-center md:text-right font-normal  font-helvetica-geo leading-[1.8]'>{t('rights')}</p>
 
     </footer>
   )

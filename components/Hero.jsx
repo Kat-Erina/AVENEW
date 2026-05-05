@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import RequestCallBtn from "./RequestCallBtn";
 import { useTranslations } from 'next-intl';
 import Form from "./Form";
+import Image from "next/image";
 
 
 const Hero = () => {
@@ -22,7 +23,11 @@ const Hero = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
           onClick={() => setModalOpen(false)}
         >
-          <div style={{ maxWidth: '483px' }} className="w-full" onClick={(e) => e.stopPropagation()}>
+          <div style={{ maxWidth: '483px'  }} className="w-full bg-dark-red p-[20px]" onClick={(e) => e.stopPropagation()}>
+            <div className="w-full flex justify-end">
+               <Image onClick={()=>setModalOpen(false)} alt='icon' height={20} width={20} src={'/icons/icon.png'}></Image>
+            </div>
+           
             <Form width="600px" />
           </div>
         </div>

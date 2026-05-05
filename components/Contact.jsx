@@ -21,15 +21,15 @@ const Contact = () => {
   return (
     <div className="py-12 bg-white relative">
       <section className="bg-creamy flex py-12 justify-center items-center flex-col">
-        <h3 className="text-[#776F40] font-helvetica text-[26px] uppercase text-center">
+        <h3 className="text-[#776F40] font-helvetica-geo text-[26px] uppercase text-center">
           <span className="font-helvetica">{t('title')}</span>
           <br></br> {t('info')}
         </h3>
         <div className="flex mt-[38px] flex-col items-center mb-10 uppercase ">
           <p className="text-[#776F40] uppercase">0322 20 40 20</p>
-          <p className="text-[#776F40] uppercase">{t('address')}</p>
+          <p className="text-[#776F40] uppercase font-normal  font-helvetica-geo">{t('address')}</p>
         </div>
-        <p className="text-[#776F40] font-helvetica">info@avenew.ge</p>
+        <p className="text-[#776F40] font-normal  font-helvetica-geo">info@avenew.ge</p>
       </section>
       <section className="flex absolute right-[30px] top-[25%] flex-col gap-[33px]">
         {socials.map((item) => {

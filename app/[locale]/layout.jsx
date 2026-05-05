@@ -25,7 +25,7 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={locale}>
-      <body className={`${notoSerif.variable} ${notoSerif.className} antialiased`}>
+      <body className={`${notoSerif.variable} ${notoSerif.className} antialiased overflow-x-hidden` }>
         <AppProvider>
              <Toaster position="top-right" />
           <NextIntlClientProvider messages={messages} locale={locale}>

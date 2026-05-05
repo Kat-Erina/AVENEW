@@ -21,7 +21,7 @@ const FlatsSumUp = () => {
         <p className="text-[40px] text-yellowish font-medium leading-none">
           {t(`items.${i}.title`)}
         </p>
-        <p className="text-[22px] uppercase text-yellowish">
+        <p className="text-[22px] uppercase text-yellowish font-normal  font-helvetica-geo">
           {t(`items.${i}.text`)}
         </p>
       </div>
