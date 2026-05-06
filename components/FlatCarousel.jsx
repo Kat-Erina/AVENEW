@@ -207,12 +207,13 @@ export default function FlatCarousel() {
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-baseline mb-3">
-                  <span className="text-[26px] text-black">{t('flat')}</span>
+                  <p> <span className="text-[26px] text-black uppercase">{t('flat')}</span> <span className="text-[26px] text-black uppercase">{flat.number}</span></p>
+                  {/* <span className="text-[26px] text-black">{t('flat')}</span> */}
                   <span className="text-[16px] text-black">{flat.area} M²</span>
                 </div>
-                <p className="text-sm text-grey mb-1 font-normal font-helvetica-geo uppercase">{t('balcony')}: {flat.balcony} M²</p>
-                <p className="font-normal font-helvetica-geo text-sm text-grey mb-1">{t('livingSpace')}: {flat.living} M²</p>
-                <p className="font-normal font-helvetica-geo text-sm text-grey">{t('bedroom')}: {flat.bedroom}</p>
+                <p className="text-[16px] text-grey mb-1 font-normal  uppercase">{t('balcony')}: {flat.balcony} M²</p>
+                <p className="font-normal  text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {flat.living} M²</p>
+                <p className="font-normal  text-[16px] text-grey uppercase">{t('bedroom')}: {flat.bedroom}</p>
               </div>
             </Link>
           ))}

@@ -12,12 +12,12 @@ const Footer = () => {
       <div className='flex items-center justify-between md:gap-35'>
         <Image src={'/logo.png'} width={180} height={100} alt='' className='w-24 md:w-36 lg:w-44' />
         <div className='flex items-center gap-2 text-sm md:text-base'>
-          <p>© Ave.New</p>
-          <p>2026</p>
+          <p className='font-apecru'>© Ave.New</p>
+          <p className='font-apecru'>2026</p>
         </div>
       </div>
 
-      <p className='text-sm md:text-base text-center md:text-right font-normal  font-helvetica-geo leading-[1.8]'>{t('rights')}</p>
+      <p className='text-sm md:text-base text-center md:text-right font-normal leading-[1.8] '>{t('rights')}</p>
 
     </footer>
   )

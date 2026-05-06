@@ -18,10 +18,10 @@ const FlatsSumUp = () => {
     <div className="flex-1 flex items-center justify-center p-6 md:p-10">
       <div className="flex flex-col items-center justify-center gap-3 text-gray-500 text-center">
         <Image src={images[i]} width={50} height={50} alt='' />
-        <p className="text-[40px] text-yellowish font-medium leading-none">
+        <h3 className="text-[40px] text-yellowish font-regular leading-none uppercase">
           {t(`items.${i}.title`)}
-        </p>
-        <p className="text-[22px] uppercase text-yellowish font-normal  font-helvetica-geo">
+        </h3>
+        <p className="text-[16px] uppercase text-yellowish font-normal ">
           {t(`items.${i}.text`)}
         </p>
       </div>

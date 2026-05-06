@@ -25,7 +25,7 @@ const CustomSelect = ({ options, value, onChange, placeholder }) => {
         className="h-14 px-4 border-b border-white/30 flex items-center justify-between cursor-pointer text-yellowish"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-sm tracking-widest uppercase text-[16px] font-normal  font-helvetica-geo "> {!value ? placeholder : value}</span>
+        <span className="text-sm tracking-widest uppercase text-[16px] font-normal   "> {!value ? placeholder : value}</span>
         <span className="text-lg text-yellowish"> {open ? <ChevronUp/> : <ChevronDown/>}</span>
       </div>
       {open && (
@@ -33,7 +33,7 @@ const CustomSelect = ({ options, value, onChange, placeholder }) => {
           {options.map((opt) => (
             <div
               key={opt}
-              className="px-4 py-3 hover:bg-white/10 cursor-pointer text-yellowish text-sm tracking-widest uppercase"
+              className="px-4 py-3 hover:bg-white/10 cursor-pointer text-yellowish text-[16px] tracking-widest uppercase"
               onClick={() => { onChange(opt); setOpen(false); }}
             >
               {opt}
@@ -90,7 +90,8 @@ const validate = () => {
     value={name}
     onChange={(e) => setName(e.target.value)}
     placeholder={t('name')}
-    className="font-normal  font-helvetica-geo flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none"
+    className="font-normal  
+     flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none leading-[1.2] "
   />
   <span className="text-yellowish">*</span>
 </div>
@@ -105,7 +106,7 @@ const validate = () => {
     value={tel}
     onChange={(e) => setTel(e.target.value)}
     placeholder={t('tel')}
-    className="font-normal  font-helvetica-geo flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none"
+    className="font-normal  flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none leading-[1.2]  "
   />
   <span className="text-yellowish">*</span>
 </div>
@@ -127,7 +128,7 @@ const validate = () => {
 
       <div className="h-14 mt-4" />
 
-      <button onClick={()=>{handleSubmit()}} className="font-normal  font-helvetica-geo h-14 border border-white/30 text-yellowish text-[16px] tracking-widest uppercase hover:bg-white/10 transition-colors">
+      <button onClick={()=>{handleSubmit()}} className="font-normal  h-14 border border-white/30 text-yellowish text-[16px] tracking-widest uppercase hover:bg-white/10 transition-colors">
         {t('requestACall')}
       </button>
 

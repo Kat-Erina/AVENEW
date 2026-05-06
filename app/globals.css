@@ -10,29 +10,60 @@
     --yellowish:#E8E6DD;
    --creamy:#E5E0CA ;
    --grey:#676767;
-   --light-green:#776F40
+   --light-green:#776F40;
+
+
+
+
 
 }
 
-@theme {
+/* @theme {
   --font-helvetica-geo: 'Helvetica Neue LT GEO', sans-serif;
-}
+} */
 
-@theme inline {
-    --font-noto:'Noto Serif';
+@theme  {
+    
     --color-dark-red: var(--dark-red);
   --color-greenish: var(--greenish);
   --color-yellowish: var(--yellowish);
   --color-creamy: var(--creamy);
   --color-grey: var(--grey);
-  --light-green:var(--light-green)
+  --light-green:var(--light-green);
+
+    /* --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary); */
 }
 @layer base {
-  body {
-    font-family: var(--font-noto), serif;
-  }
-}
+  :root {
+    --font-sans-en: "Apecru", sans-serif;
+    --font-serif-en: "Source Serif 4", serif;
+    --font-sans-geo: "Helvetica Neue LT GEO", sans-serif;
+    --font-serif-geo: "Noto Serif Geo", serif;
 
+    --font-primary: var(--font-serif-geo);
+    --font-secondary: var(--font-sans-geo);
+  }
+
+  html:lang(en) {
+    --font-primary: var(--font-serif-en);
+    --font-secondary: var(--font-sans-en);
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    background-color: white;
+    color: var(--foreground);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+  }
+
+  .primary-cl   { font-family: var(--font-primary); }
+  .secondary-cl { font-family: var(--font-secondary); }
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -43,118 +74,69 @@
 html{
   overflow-x: hidden;
 }
-body {
-  background-color: white;
-  color: var(--foreground);
-   font-family: var(--font-noto), serif;
-  overflow-x: hidden;
 
-}
 
-/* Helvetica Font */
-@font-face {
-  font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/HelveticaNeueLTGEO-45Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* apecru fonts */
+
 
 @font-face {
-  font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/HelveticaNeueLTGEO-55Roman.ttf') format('truetype');
+  font-family: "Apecru";
+  src: url("/fonts/apecru_regular_pro.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/HelveticaNeueLTGEO65Medium.otf') format('opentype');
+  font-family: "Apecru";
+  src: url("/fonts/apecru_medium_pro.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
+ /* Noto Serif Geo Font */
+
 @font-face {
-  font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/Helvetica Neue LT GEO 75 Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-family: 'Noto Serif Geo' ;
+  src: url('/fonts/NotoSerifGeorgian-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight:  100 900;
+   font-style: normal;
+  font-display: swap;
+}
+
+/* Source Serif Fonts */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/SourceSerif4-Regular.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+
+/* Helvetica Font */
+
 @font-face {
   font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/HelveticaNeueLTGEO95Black.otf') format('opentype');
-  font-weight: 900;
+  src: url('/fonts/HelveticaNeueLTGEO-55Roman.otf') format('openType');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Helvetica Neue LT GEO';
-  src: url('/fonts/HELVETICANEUELTGEOW82-75BD.TTF') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Helvetica classes */
 /* .font-normal */
 
 /* Noto Serif Font classes */
 
-.font-noto-hair {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 100 !important;
-}
-
-.font-noto-thin {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 200 !important;
-}
-
-.font-noto-light {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 300 !important;
-}
-
-.font-noto-regular {
-  font-family: 'Noto Serif', sans-serif !important;
+.font-apecru {
+  font-family: 'Apecru', sans-serif !important;
   font-weight: 400 !important;
 }
 
-.font-noto-medium {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 500 !important;
-}
-
-.font-noto-semibold {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 600 !important;
-}
-
-.font-noto-bold {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 700 !important;
-}
-
-.font-noto-xbold {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 800 !important;
-}
-
-.font-noto-black {
-  font-family: 'Noto Serif', sans-serif !important;
-  font-weight: 900 !important;
-}
-
-.vertical-text {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  /* font-family: "Noto Sans Georgian"; */
-}
 
 button:hover{
   cursor: pointer;

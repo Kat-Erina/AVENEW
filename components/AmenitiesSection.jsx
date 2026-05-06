@@ -39,9 +39,8 @@ const AmenitiesSection = () => {
           {/* Overlay text at bottom */}
           <div className="absolute md:-bottom-13  -bottom-14 left-0 right-0 flex justify-center">
             <div className="bg-white p-3 md:p-3 text-center w-fit">
-              <h2 className="text-black font-bold text-lg  md:text-xl mb-2 whitespace-pre-line">{t(`items.${i}.title`)}</h2>
-              <p className="font-normal  font-helvetica-geo 
-               text-[#676767] text-sm md:text-lg">{t(`items.${i}.text`)}</p>
+              <h2 className="text-black font-bold text-lg  md:text-[24px] leading-[1.1] mb-2 whitespace-pre-line uppercase">{t(`items.${i}.title`)}</h2>
+              <p className="font-normal  text-[#676767] text-[16px] md:text-lg uppercase">{t(`items.${i}.text`)}</p>
             </div>
           </div>
         </div>
