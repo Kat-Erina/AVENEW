@@ -27,7 +27,7 @@ const AmenitiesSection = () => {
     const t = useTranslations('amenities');
 
   return (
-    <section className="bg-white flex justify-center gap-5 max-md:gap-20 items-center  max-md:flex-col pt-15 pb-30 max-lg:px-3   ">
+    <section className="bg-white flex justify-center gap-5 max-md:gap-20 items-center  max-md:flex-col pt-16 pb-30 max-lg:px-3   ">
       {amenties.map((item,i) => (
         <div key={item.id} className="relative max-w-115 w-full h-110 transition duration-200 hover:scale-105 hover:shadow-2xl">
           <Image
