@@ -1,18 +1,19 @@
-'use client';
+"use client";
+import { useRef, useEffect } from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { flats } from "@/lib/flats";
+import Image from "next/image";
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { flats } from '@/lib/flats';
-
-export default function FlatCarousel() {
-  const locale = useLocale();
+export default function FeaturedApartments() {
   const wrapperRef = useRef(null);
   const trackRef = useRef(null);
   const progressBarRef = useRef(null);
   const thumbElRef = useRef(null);
-  const t = useTranslations('flat');
+  const params = useParams();
+  const locale = params?.locale || "ka";
+  const t = useTranslations("flat");
 
   const s = useRef({
     offset: 0,
@@ -27,15 +28,16 @@ export default function FlatCarousel() {
     barDragStartOffset: 0,
   });
 
-  const [loadedCount, setLoadedCount] = useState(0);
-
-
-  useEffect(() => {
+ useEffect(() => {
     const track = trackRef.current;
     const wrapper = wrapperRef.current;
     const progressBar = progressBarRef.current;
     const thumbEl = thumbElRef.current;
     if (!track || !wrapper || !progressBar || !thumbEl) return;
+
+    let velocity = 0;
+    let lastX = 0;
+    let rafId = null;
 
     function updateThumb() {
       const trackWidth = track.scrollWidth;
@@ -43,13 +45,11 @@ export default function FlatCarousel() {
       const barWidth = progressBar.offsetWidth;
       const maxOffset = Math.max(0, trackWidth - viewWidth);
       s.current.maxOffset = maxOffset;
-
       const thumbWidth = Math.max(24, (viewWidth / trackWidth) * barWidth);
       s.current.thumbWidth = thumbWidth;
       const thumbLeft = maxOffset > 0
         ? (s.current.offset / maxOffset) * (barWidth - thumbWidth)
         : 0;
-
       thumbEl.style.width = `${thumbWidth}px`;
       thumbEl.style.left = `${thumbLeft}px`;
     }
@@ -60,14 +60,23 @@ export default function FlatCarousel() {
       updateThumb();
     }
 
+    function momentum() {
+      if (Math.abs(velocity) < 0.5) return;
+      velocity *= 0.92; // friction — lower = stops faster, higher = glides longer
+      applyOffset(s.current.offset + velocity);
+      rafId = requestAnimationFrame(momentum);
+    }
+
     updateThumb();
 
-    // ── Track mouse drag ─────────────────────────────────────────────────────
     const onTrackMouseDown = (e) => {
+      cancelAnimationFrame(rafId);
       s.current.isDragging = true;
       s.current.didDrag = false;
       s.current.dragStartX = e.clientX;
       s.current.dragStartOffset = s.current.offset;
+      lastX = e.clientX;
+      velocity = 0;
       track.style.cursor = 'grabbing';
       e.preventDefault();
     };
@@ -83,6 +92,8 @@ export default function FlatCarousel() {
 
     const onMouseMove = (e) => {
       if (s.current.isDragging) {
+        velocity = lastX - e.clientX; // track velocity while dragging
+        lastX = e.clientX;
         const delta = s.current.dragStartX - e.clientX;
         if (Math.abs(delta) > 4) s.current.didDrag = true;
         applyOffset(s.current.dragStartOffset + delta);
@@ -95,22 +106,29 @@ export default function FlatCarousel() {
     };
 
     const onMouseUp = () => {
+      if (s.current.isDragging) {
+        rafId = requestAnimationFrame(momentum); // release → glide
+      }
       s.current.isDragging = false;
       s.current.isBarDragging = false;
       track.style.cursor = 'grab';
       progressBar.style.cursor = 'grab';
     };
 
-    // ── Track touch drag ─────────────────────────────────────────────────────
     const onTrackTouchStart = (e) => {
+      cancelAnimationFrame(rafId);
       s.current.isDragging = true;
       s.current.didDrag = false;
       s.current.dragStartX = e.touches[0].clientX;
       s.current.dragStartOffset = s.current.offset;
+      lastX = e.touches[0].clientX;
+      velocity = 0;
     };
 
     const onTrackTouchMove = (e) => {
       if (!s.current.isDragging) return;
+      velocity = lastX - e.touches[0].clientX;
+      lastX = e.touches[0].clientX;
       const delta = s.current.dragStartX - e.touches[0].clientX;
       if (Math.abs(delta) > 4) {
         s.current.didDrag = true;
@@ -119,9 +137,11 @@ export default function FlatCarousel() {
       applyOffset(s.current.dragStartOffset + delta);
     };
 
-    const onTrackTouchEnd = () => { s.current.isDragging = false; };
+    const onTrackTouchEnd = () => {
+      s.current.isDragging = false;
+      rafId = requestAnimationFrame(momentum); // release → glide
+    };
 
-    // ── Progress bar touch drag ──────────────────────────────────────────────
     const onBarTouchStart = (e) => {
       s.current.isBarDragging = true;
       s.current.barDragStartX = e.touches[0].clientX;
@@ -153,6 +173,7 @@ export default function FlatCarousel() {
     window.addEventListener('resize', updateThumb);
 
     return () => {
+      cancelAnimationFrame(rafId);
       track.removeEventListener('mousedown', onTrackMouseDown);
       progressBar.removeEventListener('mousedown', onBarMouseDown);
       window.removeEventListener('mousemove', onMouseMove);
@@ -168,8 +189,10 @@ export default function FlatCarousel() {
   }, []);
 
   return (
-    <div className="py-10 bg-white">
-      <section ref={wrapperRef} className="bg-yellowish overflow-hidden pt-12 pb-10 flex flex-col justify-center gap-8 ">
+    <section className="py-10 bg-white">
+      <div ref={wrapperRef} className="bg-yellowish overflow-hidden pt-12 pb-10 flex flex-col justify-center gap-8">
+
+        {/* ── Track ── */}
         <div
           ref={trackRef}
           className="flex"
@@ -182,11 +205,11 @@ export default function FlatCarousel() {
             willChange: 'transform',
           }}
         >
-          {flats.map((flat, i) => (
+          {flats.map((apartment, index) => (
             <Link
-              key={i}
-              href={`/${locale}/flats/${flat.id}`}
-              className="block flex-shrink-0 bg-white"
+              key={apartment.id}
+              href={`/${locale}/flats/${apartment.id}`}
+              className="flex flex-col bg-white transition duration-300 hover:scale-[1.025] hover:-translate-y-[5px]"
               style={{ width: '393px' }}
               draggable={false}
               onClick={(e) => {
@@ -196,61 +219,74 @@ export default function FlatCarousel() {
                 }
               }}
             >
-              <div className="hover:cursor-pointer relative bg-amber-500" style={{ height: '380px', width: '393px' }}>
+              {/* ── Image ── */}
+              <div
+                className="relative shrink-0 overflow-hidden group"
+                style={{ height: '380px', width: '393px' }}
+              >
                 <Image
-                  src={flat.image}
+                  src={apartment.image}
                   fill
-                  alt={flat.name}
-                  className="object-cover"
-                   onLoad={() => setLoadedCount(c => c + 1)}
+                  alt={apartment.name}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
-              <div className="p-4">
+
+              {/* ── Text ── */}
+              <div className="p-4 bg-white">
                 <div className="flex justify-between items-baseline mb-3">
-                  <p> <span className="text-[26px] text-black uppercase">{t('flat')}</span> <span className="text-[26px] text-black uppercase">{flat.number}</span></p>
-                  {/* <span className="text-[26px] text-black">{t('flat')}</span> */}
-                  <span className="text-[16px] text-black">{flat.area} M²</span>
+                  <p>
+                    <span className="text-[26px] text-black uppercase">{t('flat')} </span>
+                    <span className="text-[26px] text-black uppercase">{apartment.number}</span>
+                  </p>
+                  <span className="text-[16px] text-black">{apartment.area} M²</span>
                 </div>
-                <p className="text-[16px] text-grey mb-1 font-normal  uppercase">{t('balcony')}: {flat.balcony} M²</p>
-                <p className="font-normal  text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {flat.living} M²</p>
-                <p className="font-normal  text-[16px] text-grey uppercase">{t('bedroom')}: {flat.bedroom}</p>
+                <p className="text-[16px] text-grey mb-1 font-normal uppercase">{t('balcony')}: {apartment.balcony} M²</p>
+                <p className="font-normal text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {apartment.living} M²</p>
+                <p className="font-normal text-[16px] text-grey uppercase">{t('bedroom')}: {apartment.bedroom}</p>
               </div>
             </Link>
           ))}
-          <div style={{ minWidth: '0px', height: '0px', flexShrink: 0, backgroundColor:'red' }} />
+          <div style={{ width: '0', flexShrink: 0 }} />
 
         </div>
-             <div className="flex justify-center flex-1 pt-5 pb-2">
-        <div
-          ref={progressBarRef}
-          style={{
-            position: 'relative',
-            width: '130px',
-            height: '13px',
-            borderRadius: '3px',
-            cursor: 'grab',
-            backgroundColor:'white'
-          }}
-        >
+
+        {/* ── Progress Bar ── */}
+        <div className="flex justify-center pt-5 pb-2">
           <div
-            ref={thumbElRef}
+            ref={progressBarRef}
             style={{
-              position: 'absolute',
-              top: 0,
-              left: '0px',
-              width: '0px',
-              height: '100%',
-              backgroundColor: '#776F40',
+              position: 'relative',
+              width: '130px',
+              height: '13px',
               borderRadius: '3px',
               cursor: 'grab',
+              backgroundColor: 'white',
             }}
-          />
+          >
+            <div
+              ref={thumbElRef}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: '0px',
+                width: '0px',
+                height: '100%',
+                backgroundColor: '#776F40',
+                borderRadius: '3px',
+                cursor: 'grab',
+              }}
+            />
+          </div>
         </div>
-      </div>
-      </section>
 
-      {/* Scrubber */}
- 
-    </div>
+      </div>
+    </section>
   );
 }
+
+
+
+
+

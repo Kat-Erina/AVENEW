@@ -15,7 +15,7 @@ const amenties = [
   },
   {
     id: 3,
-    image: "/amenities-3.webp",
+    image: "/padell.webp",
      position: "object-center"
   },
 ];
