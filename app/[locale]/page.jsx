@@ -44,13 +44,19 @@ const Home = () => {
                  <div className='pb-12 bg-white'>
                     
 
-            <div className='h-[566px] py-10 relative flex justify-center bg-[url(/img4.png)] bg-cover'>
-            
-             <div className='absolute inset-0 bg-black/40' />
-        <div className='hidden xl:block absolute bottom-0 lg:right-37.75 w-33.25 h-106.25' >
-             <Image src='/Vector (5).png' fill alt=''></Image></div>       
-   <div className='w-[494px] bg-dark-red flex justify-center z-20'><Form    width='377px'></Form></div>      
-      </div>
+         <div className='h-[650px] lg:h-[566px] py-10 relative flex justify-center items-center bg-[url(/img4.png)] bg-bottom   md:bg-cover'>
+  
+  <div className='absolute inset-0 bg-black/40' />
+  
+  <div className='hidden xl:block absolute bottom-0 lg:right-37.75 w-33.25 h-106.25'>
+    <Image src='/Vector (5).png' fill alt='' />
+  </div>
+  
+  <div className='w-[494px] h-[494px] bg-dark-red flex justify-center items-center z-10'>
+    <Form width='377px' />
+  </div>
+
+</div>
           </div>
           </AnimatedSection>
      

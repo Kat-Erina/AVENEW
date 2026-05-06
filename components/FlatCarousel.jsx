@@ -69,6 +69,14 @@ export default function FeaturedApartments() {
 
     updateThumb();
 
+    const onWheel = (e) => {
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+    e.preventDefault();
+    cancelAnimationFrame(rafId);
+    applyOffset(s.current.offset + e.deltaX);
+  }
+};
+
     const onTrackMouseDown = (e) => {
       cancelAnimationFrame(rafId);
       s.current.isDragging = true;
@@ -171,9 +179,13 @@ export default function FeaturedApartments() {
     progressBar.addEventListener('touchmove', onBarTouchMove, { passive: false });
     progressBar.addEventListener('touchend', onBarTouchEnd);
     window.addEventListener('resize', updateThumb);
+    wrapper.addEventListener('wheel', onWheel, { passive: false }); 
+
 
     return () => {
       cancelAnimationFrame(rafId);
+      track.removeEventListener('wheel', onWheel); 
+  track.removeEventListener('mousedown', onTrackMouseDown);
       track.removeEventListener('mousedown', onTrackMouseDown);
       progressBar.removeEventListener('mousedown', onBarMouseDown);
       window.removeEventListener('mousemove', onMouseMove);
@@ -185,6 +197,8 @@ export default function FeaturedApartments() {
       progressBar.removeEventListener('touchmove', onBarTouchMove);
       progressBar.removeEventListener('touchend', onBarTouchEnd);
       window.removeEventListener('resize', updateThumb);
+        wrapper.removeEventListener('wheel', onWheel); // ← add here
+
     };
   }, []);
 
@@ -237,7 +251,7 @@ export default function FeaturedApartments() {
               <div className="p-4 bg-white">
                 <div className="flex justify-between items-baseline mb-3">
                   <p>
-                    <span className="text-[26px] text-black uppercase">{t('flat')} </span>
+                    <span className="primary-cl text-[26px] text-black uppercase">{t('flat')} </span>
                     <span className="text-[26px] text-black uppercase">{apartment.number}</span>
                   </p>
                   <span className="text-[16px] text-black">{apartment.area} M²</span>

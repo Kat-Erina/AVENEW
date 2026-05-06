@@ -36,7 +36,7 @@
 }
 @layer base {
   :root {
-    --font-sans-en: "Apecru", sans-serif;
+    --font-sans-en: "Apercu", sans-serif;
     --font-serif-en: "Source Serif 4", serif;
     --font-sans-geo: "Helvetica Neue LT GEO", sans-serif;
     --font-serif-geo: "Noto Serif Geo", serif;
@@ -76,20 +76,18 @@ html{
 }
 
 
-/* apecru fonts */
-
 
 @font-face {
-  font-family: "Apecru";
-  src: url("/fonts/apecru_regular_pro.otf") format("opentype");
+  font-family: "Apercu";
+  src: url("/fonts/apercu_regular_pro.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Apecru";
-  src: url("/fonts/apecru_medium_pro.otf") format("opentype");
+  font-family: "Apercu";
+  src: url("/fonts/apercu_medium_pro.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -133,7 +131,7 @@ html{
 /* Noto Serif Font classes */
 
 .font-apecru {
-  font-family: 'Apecru', sans-serif !important;
+  font-family: 'Apercu', sans-serif !important;
   font-weight: 400 !important;
 }
 
