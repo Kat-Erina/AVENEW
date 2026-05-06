@@ -30,6 +30,7 @@
   --color-creamy: var(--creamy);
   --color-grey: var(--grey);
   --light-green:var(--light-green);
+  --breakpoint-xs: 420px;
 
     /* --font-primary: var(--font-primary);
   --font-secondary: var(--font-secondary); */

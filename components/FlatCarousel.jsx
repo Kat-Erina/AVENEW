@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -14,6 +14,10 @@ export default function FeaturedApartments() {
   const params = useParams();
   const locale = params?.locale || "ka";
   const t = useTranslations("flat");
+const cardWidthRef = useRef(423);
+const [trackPadding, setTrackPadding] = useState('0px');
+
+
 
   const s = useRef({
     offset: 0,
@@ -67,8 +71,22 @@ export default function FeaturedApartments() {
       rafId = requestAnimationFrame(momentum);
     }
 
+    updateCardWidth();
     updateThumb();
 
+    setTimeout(() => {
+  // updateCardWidth();
+  updateThumb();
+}, 100);
+
+function updateCardWidth() {
+  const firstCard = track.querySelector('a');
+  if (firstCard) {
+    const gap = wrapper.offsetWidth < 640 ? 0 : 30;
+    cardWidthRef.current = firstCard.offsetWidth + gap;
+    setTrackPadding(wrapper.offsetWidth < 640 ? '0px' : '24px');
+  }
+}
     const onWheel = (e) => {
   if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
     e.preventDefault();
@@ -144,19 +162,15 @@ export default function FeaturedApartments() {
       }
       applyOffset(s.current.dragStartOffset + delta);
     };
-
-   const onTrackTouchEnd = () => {
+const onTrackTouchEnd = () => {
   s.current.isDragging = false;
-  
-  
+  const cardWidth = cardWidthRef.current;
+
   if (Math.abs(velocity) > 1) {
-    const cardWidth = 393 + 30;
     const currentIndex = Math.round(s.current.offset / cardWidth);
-    const targetIndex = velocity > 0 
-      ? currentIndex + 1  
-      : currentIndex - 1; 
+    const targetIndex = velocity > 0 ? currentIndex + 1 : currentIndex - 1;
     const clampedIndex = Math.max(0, Math.min(targetIndex, flats.length - 1));
-    const snappedOffset = clampedIndex * cardWidth;
+    const snappedOffset = Math.max(0, Math.min(clampedIndex * cardWidth, s.current.maxOffset));
 
     const startOffset = s.current.offset;
     const distance = snappedOffset - startOffset;
@@ -194,32 +208,27 @@ export default function FeaturedApartments() {
       e.preventDefault();
     };
 
-    function snapToCard() {
-  const cardWidth = 393 + 30; // card width + gap
+function snapToCard() {
+  const cardWidth = cardWidthRef.current;
   const index = Math.round(s.current.offset / cardWidth);
-  const snappedOffset = index * cardWidth;
-  
-  // animate smoothly to snapped position
+  const snappedOffset = Math.max(0, Math.min(index * cardWidth, s.current.maxOffset));
+
   const startOffset = s.current.offset;
   const distance = snappedOffset - startOffset;
-  const duration = 300; // ms
+  const duration = 300;
   const startTime = performance.now();
 
   function animate(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // ease out cubic
     const ease = 1 - Math.pow(1 - progress, 3);
     applyOffset(startOffset + distance * ease);
-    if (progress < 1) {
-      rafId = requestAnimationFrame(animate);
-    }
+    if (progress < 1) rafId = requestAnimationFrame(animate);
   }
 
   cancelAnimationFrame(rafId);
   rafId = requestAnimationFrame(animate);
 }
-
     const onBarTouchEnd = () => { s.current.isBarDragging = false; };
 
     track.addEventListener('mousedown', onTrackMouseDown);
@@ -262,61 +271,63 @@ export default function FeaturedApartments() {
 
         {/* ── Track ── */}
         <div
-          ref={trackRef}
-          className="flex"
-          style={{
-            width: 'max-content',
-            gap: '30px',
-            paddingLeft: '24px',
-            cursor: 'grab',
-            userSelect: 'none',
-            willChange: 'transform',
-          }}
+ref={trackRef}
+  className="flex flex-row gap-0 sm:gap-[30px]"
+  style={{
+    width: 'max-content',
+     paddingLeft: trackPadding,
+    paddingRight: trackPadding,
+    cursor: 'grab',
+    userSelect: 'none',
+    willChange: 'transform',
+  }}
         >
           {flats.map((apartment, index) => (
             <Link
-              key={apartment.id}
-              href={`/${locale}/flats/${apartment.id}`}
-              className="flex flex-col bg-white transition duration-300 hover:scale-[1.025] hover:-translate-y-[5px]"
-              style={{ width: '393px' }}
-              draggable={false}
-              onClick={(e) => {
-                if (s.current.didDrag) {
-                  e.preventDefault();
-                  s.current.didDrag = false;
-                }
-              }}
-            >
-              {/* ── Image ── */}
-              <div
-                className="relative shrink-0 overflow-hidden group"
-                style={{ height: '380px', width: '393px' }}
-              >
-                <Image
-                  src={apartment.image}
-                  fill
-                  alt={apartment.name}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/5" />
-              </div>
+  key={apartment.id}
+  href={`/${locale}/flats/${apartment.id}`}
+  className="flex flex-col bg-yellowish transition duration-300 hover:scale-[1.025] hover:-translate-y-[5px] w-[100vw] sm:w-[393px]"
+  draggable={false}
+  onClick={(e) => {
+    if (s.current.didDrag) {
+      e.preventDefault();
+      s.current.didDrag = false;
+    }
+  }}
+>
+  {/* ── Image wrapper with yellowish padding ── */}
+  <div className="px-4 sm:px-0 bg-yellowish">
+    <div
+      className="relative overflow-hidden group "
+  style={{ height: '380px', width: '100%' }}    >
+      <Image
+        src={apartment.image}
+        fill
+        alt={apartment.name}
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-black/5" />
+    </div>
+  </div>
 
-              {/* ── Text ── */}
-              <div className="p-4 bg-white">
-                <div className="flex justify-between items-baseline mb-3">
-                  <p>
-                    <span className="primary-cl text-[26px] text-black uppercase">{t('flat')} </span>
-                    <span className="text-[26px] text-black uppercase">{apartment.number}</span>
-                  </p>
-                  <span className="text-[16px] text-black">{apartment.area} M²</span>
-                </div>
-                <p className="text-[16px] text-grey mb-1 font-normal uppercase">{t('balcony')}: {apartment.balcony} M²</p>
-                <p className="font-normal text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {apartment.living} M²</p>
-                <p className="font-normal text-[16px] text-grey uppercase">{t('bedroom')}: {apartment.bedroom}</p>
-              </div>
-            </Link>
+  {/* ── Text ── */}
+<div className="px-4 sm:px-0 bg-yellowish">
+  <div className="p-4 bg-white">
+    <div className="flex justify-between items-baseline mb-3">
+      <p>
+        <span className="primary-cl text-[26px] text-black uppercase">{t('flat')} </span>
+        <span className="text-[26px] text-black uppercase">{apartment.number}</span>
+      </p>
+      <span className="text-[16px] text-black">{apartment.area} M²</span>
+    </div>
+    <p className="text-[16px] text-grey mb-1 font-normal uppercase">{t('balcony')}: {apartment.balcony} M²</p>
+    <p className="font-normal text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {apartment.living} M²</p>
+    <p className="font-normal text-[16px] text-grey uppercase">{t('bedroom')}: {apartment.bedroom}</p>
+  </div>
+</div>
+</Link>
           ))}
-          <div style={{ width: '0', flexShrink: 0 }} />
+          {/* <div style={{ width: '0', flexShrink: 0 }} /> */}
 
         </div>
 
