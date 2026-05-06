@@ -19,7 +19,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="py-12 bg-white relative">
+    <div className="py-12 bg-white relative ">
       <section className="bg-creamy flex py-12 justify-center items-center flex-col">
         <h3 className="text-[#776F40]  text-[26px] uppercase text-center flex flex-col ">
           <span>{t('title')}</span>
