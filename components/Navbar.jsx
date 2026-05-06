@@ -27,7 +27,7 @@ const Navbar = () => {
         <Image src={'/logo.png'} width={180} height={100} alt='' />
 <button 
  onClick={() => switchLocale(locale === 'ka' ? 'en' : 'ka')}
-  style={{ position: 'relative', zIndex: 9999 }}
+  style={{ position: 'relative', zIndex: 9999 }} className='font-apecru'
 >
    {locale === 'ka' ? 'ENG' : 'GEO'}
 </button>

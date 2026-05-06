@@ -23,12 +23,12 @@ const Hero = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
           onClick={() => setModalOpen(false)}
         >
-          <div style={{ maxWidth: '483px'  }} className="w-full bg-dark-red p-[20px]" onClick={(e) => e.stopPropagation()}>
-            <div className="w-full flex justify-end">
+          <div style={{ maxWidth: '553px'  }} className="w-full bg-dark-red p-[20px]" onClick={(e) => e.stopPropagation()}>
+            <div className="w-full flex justify-end mt-[15px] mb-[-40px]">
                <Image onClick={()=>setModalOpen(false)} alt='icon' height={20} width={20} src={'/icons/Icon.png'}></Image>
             </div>
            
-            <Form width="600px" />
+            <Form width="377px" />
           </div>
         </div>
       )}
