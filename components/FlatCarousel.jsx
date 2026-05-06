@@ -145,10 +145,38 @@ export default function FeaturedApartments() {
       applyOffset(s.current.dragStartOffset + delta);
     };
 
-    const onTrackTouchEnd = () => {
-      s.current.isDragging = false;
-      rafId = requestAnimationFrame(momentum); // release → glide
-    };
+   const onTrackTouchEnd = () => {
+  s.current.isDragging = false;
+  
+  
+  if (Math.abs(velocity) > 1) {
+    const cardWidth = 393 + 30;
+    const currentIndex = Math.round(s.current.offset / cardWidth);
+    const targetIndex = velocity > 0 
+      ? currentIndex + 1  
+      : currentIndex - 1; 
+    const clampedIndex = Math.max(0, Math.min(targetIndex, flats.length - 1));
+    const snappedOffset = clampedIndex * cardWidth;
+
+    const startOffset = s.current.offset;
+    const distance = snappedOffset - startOffset;
+    const duration = 300;
+    const startTime = performance.now();
+
+    function animate(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      applyOffset(startOffset + distance * ease);
+      if (progress < 1) rafId = requestAnimationFrame(animate);
+    }
+
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(animate);
+  } else {
+    snapToCard();
+  }
+};
 
     const onBarTouchStart = (e) => {
       s.current.isBarDragging = true;
@@ -165,6 +193,32 @@ export default function FeaturedApartments() {
       applyOffset(s.current.barDragStartOffset + ratio * s.current.maxOffset);
       e.preventDefault();
     };
+
+    function snapToCard() {
+  const cardWidth = 393 + 30; // card width + gap
+  const index = Math.round(s.current.offset / cardWidth);
+  const snappedOffset = index * cardWidth;
+  
+  // animate smoothly to snapped position
+  const startOffset = s.current.offset;
+  const distance = snappedOffset - startOffset;
+  const duration = 300; // ms
+  const startTime = performance.now();
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // ease out cubic
+    const ease = 1 - Math.pow(1 - progress, 3);
+    applyOffset(startOffset + distance * ease);
+    if (progress < 1) {
+      rafId = requestAnimationFrame(animate);
+    }
+  }
+
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(animate);
+}
 
     const onBarTouchEnd = () => { s.current.isBarDragging = false; };
 
