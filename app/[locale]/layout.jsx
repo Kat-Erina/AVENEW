@@ -1,4 +1,3 @@
-// import { Noto_Serif } from 'next/font/google';
 import { AppProvider } from "@/context/AppContext";
 import { NextIntlClientProvider } from "next-intl";
 import {locales} from '@/i18n'
@@ -7,12 +6,6 @@ import { Toaster } from 'react-hot-toast';
 
 
 
-// const notoSerif = Noto_Serif({
-//   subsets: ['latin'],
-//   weight: ['400', '700'],
-//   style: ['normal', 'italic'],
-//    variable: '--font-noto',
-// });
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
