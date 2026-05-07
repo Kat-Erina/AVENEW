@@ -1,68 +1,79 @@
 {
-
   "hero": {
     "loading": "Loading...",
-    "defaultSubtitle": "A Rooted Identity For Timeless Living",
-    "defaultTitle": "WHERE KAKHETI COMES TOGETHER",
-    "requestCall": "Request a call", 
-    "city":"Lorem", 
-    "avenue":"Lorem Ipsum"
+    "requestCall": "Request a Call",
+    "city": "City's",
+    "avenue": "New Avenue"
   },
- 
-   "terms": {
+
+  "terms": {
     "items": [
-      { "title": "0%", "text": "lorem", "drop":"lorem"  },
-      { "title": "1-3%", "text": "lorem", "drop":"lorem" },
-      { "title": "7%", "text": "lorem ", "drop":"lorem"  }
-    ]
-  }, 
- "amenities":{
- "items": [
-      { "title": "First Recreational Bridge", "text": "lorem ipsum lorem ipsum" },
-      { "title": "Lorem Ipsum Lorem Ipsum ", "text": "lorem ipsum" },
-      { "title": "Lorem Ipsum Lorem Ipsum", "text": "lorem ipsum" }
+      { "title": "0%", "text": "Internal", "drop": "Installment Plan" },
+      { "title": "1-3%", "text": "Initial", "drop": "Deposit" },
+      { "title": "7%", "text": "Discount", "drop": "on Deposit" }
     ]
   },
-  "form": {
-  "name": "Name",
-  "tel": "Phone number",
-  "bedrooms": "Bedrooms",
-  "contactVia": "Request a call",
-   "contactOptions": ["Call", "Viber", "WhatsApp"],
-    "languageOptions": ["Georgian", "English"],
-        "requestACall":"Request a call",
-        "errors": {
-  "nameRequired": "Name is required",
-  "telRequired": "Phone number is required",
-  "telInvalid": "Phone number can only contain numbers"
- 
 
-},
- "successMessage": "Your request has been sent",
- "errorMessage": "Something went wrong, please try again"
-
-},
-"flatSumUp":{
-   "items": [
-      { "title": "400 000 m2", "text": "Lorem Ipsum" },
-      { "title": "3000 Flats", "text": "lorem ipsum" },
-      { "title": "25 000 m2", "text": "lorem ipsum" }
+  "amenities": {
+    "items": [
+      {
+        "title": "Agrohub Within the Complex",
+        "text": "For Family Shopping"
+      },
+       {
+        "title": "The First Recreational Bridge",
+        "text": "For Everyday Relaxation"
+      },
+      {
+        "title": "Sports & Entertainment Areas",
+        "text": "For an Active Lifestyle"
+      }
     ]
-},
-"flat":{
-"flat":"Flat",
-"balcony":"Balcony", 
-"livingSpace":"Lorem",
-"bedroom":"Bedroom"
+  },
 
-},
-"contact":{
-  "title":"Contact",
-  "info":"Information",
-  "address":"David Aghmashenebeli street #198"
-},
-"footer":{
-  "rights":"All Rights Reserved"
-}
-  
+  "form": {
+    "name": "Name",
+    "tel": "Phone Number",
+    "bedrooms": "Number of Bedrooms",
+    "contactVia": "Request a Call",
+    "contactOptions": ["Call", "Viber", "WhatsApp"],
+    "languageOptions": ["Georgian", "English"],
+    "requestACall": "Request a Call",
+
+    "errors": {
+      "nameRequired": "Name is required",
+      "telRequired": "Phone number is required",
+      "telInvalid": "Phone number must contain only digits"
+    },
+
+    "successMessage": "Your request has been sent",
+    "errorMessage": "An error occurred, please try again"
+  },
+
+  "flatSumUp": {
+    "items": [
+      { "title": "400,000 sq.m", "text": "Construction Area" },
+      { "title": "3000 Apartments", "text": "Number of Apartments" },
+      { "title": "25,000 sq.m", "text": "Recreational Zone" }
+    ]
+  },
+
+  "flat": {
+    "flat": "Apartment",
+    "balcony": "Balcony",
+    "livingSpace": "Living Space",
+    "bedroom_one": "Bedroom",
+    "bedroom_other": "bedrooms",
+    "studio": "studio"
+  },
+
+  "contact": {
+    "title": "Contact",
+    "info": "Information",
+    "address": "198 David Agmashenebeli Alley"
+  },
+
+  "footer": {
+    "rights": "All Rights Reserved"
+  }
 }

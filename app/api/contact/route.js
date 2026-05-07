@@ -8,7 +8,7 @@ export async function POST(request) {
 
     await resend.emails.send({
       from: 'AVENEW <noreply@avenew.ge>',
-      to: ['marketing@avenew.ge', 'tornikesamkharadzee@gmail.com'],
+      to: ['nalchevanidzekaterina@gmail.com'],
       subject: `ახალი განაცხადი — ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #fff;">

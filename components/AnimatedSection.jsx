@@ -11,7 +11,7 @@ export default function AnimatedSection({ children, direction = 'right', classNa
     <motion.div
       initial="hidden"
       whileInView="visible"
-      transition={{ duration: 0.4, ease: 'easeOut', delay }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay }}
       viewport={{ once: true, amount: 0.2 }}
       variants={variants}
       className={className}

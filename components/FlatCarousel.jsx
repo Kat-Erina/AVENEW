@@ -298,15 +298,15 @@ ref={trackRef}
   {/* ── Image wrapper with yellowish padding ── */}
   <div className="px-4 sm:px-0 bg-yelowish">
     <div className="relative overflow-hidden group" style={{ height: '380px', width: '100%' }}>
-  <div className="absolute inset-0 bg-white p-4 sm:p-6">
-    <div className="relative w-full h-full overflow-hidden">
-      <Image
-        src={apartment.image}
-        fill
-        alt={apartment.name}
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
+  <div className="absolute inset-0 bg-white ">
+    {/* <div className="relative w-full h-full overflow-hidden"> */}
+
+        <img
+    src={apartment.image}
+    alt={apartment.name}
+    className="w-full h-full  transition-transform duration-500 group-hover:scale-105 "
+  />
+    {/* </div> */}
   </div>
 </div>
   </div>
@@ -323,7 +323,11 @@ ref={trackRef}
     </div>
     <p className="text-[16px] text-grey mb-1 font-normal uppercase">{t('balcony')}: {apartment.balcony} M²</p>
     <p className="font-normal text-[16px] text-grey mb-1 uppercase">{t('livingSpace')}: {apartment.living} M²</p>
-    <p className="font-normal text-[16px] text-grey uppercase">{t('bedroom')}: {apartment.bedroom}</p>
+    <p className="font-normal text-[16px] text-grey uppercase">{t('bedroom_one')}: {
+       apartment.bedroom === 'studio' 
+      ? t('studio')
+      :`${apartment.bedroom} ${Number(apartment.bedroom) === 1 ? t('bedroom_one') : t('bedroom_other')}`
+      }</p>
   </div>
 </div>
 </Link>
