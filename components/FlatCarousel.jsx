@@ -296,18 +296,19 @@ ref={trackRef}
   }}
 >
   {/* ── Image wrapper with yellowish padding ── */}
-  <div className="px-4 sm:px-0 bg-yellowish">
-    <div
-      className="relative overflow-hidden group "
-  style={{ height: '380px', width: '100%' }}    >
+  <div className="px-4 sm:px-0 bg-yelowish">
+    <div className="relative overflow-hidden group" style={{ height: '380px', width: '100%' }}>
+  <div className="absolute inset-0 bg-white p-4 sm:p-6">
+    <div className="relative w-full h-full overflow-hidden">
       <Image
         src={apartment.image}
         fill
         alt={apartment.name}
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-black/5" />
     </div>
+  </div>
+</div>
   </div>
 
   {/* ── Text ── */}
@@ -339,7 +340,6 @@ ref={trackRef}
               position: 'relative',
               width: '130px',
               height: '13px',
-              borderRadius: '3px',
               cursor: 'grab',
               backgroundColor: 'white',
             }}
@@ -353,7 +353,6 @@ ref={trackRef}
                 width: '0px',
                 height: '100%',
                 backgroundColor: '#776F40',
-                borderRadius: '3px',
                 cursor: 'grab',
               }}
             />

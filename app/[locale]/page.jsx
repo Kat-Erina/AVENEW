@@ -26,7 +26,7 @@ const Home = () => {
            <AmenitiesSection/>
         </AnimatedSection>
      
-      <div className='relative flex justify-center bg-dark-red h-[483px]'>
+      <div className='relative flex justify-center bg-dark-red h-[483px] p-6 lg:p-0'>
         <div className='hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25' >
              <Image src='/Vector (1).png' fill alt=''></Image></div>       
          <Form width='483px'></Form>
@@ -52,7 +52,7 @@ const Home = () => {
     <Image src='/Vector (5).png' fill alt='' />
   </div>
   
-  <div className='w-[494px] h-[494px] bg-dark-red flex justify-center items-center z-10'>
+  <div className='w-[494px] h-[494px] bg-dark-red flex justify-center items-center z-10 p-6 lg:p-0'>
     <Form width='377px' />
   </div>
 
