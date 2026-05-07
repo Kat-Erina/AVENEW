@@ -60,17 +60,8 @@ const Form = ({ width = 'max-w-md' }) => {
 
 
   const [errors, setErrors] = useState({});
-const handleSubmit = () => {
-  if (!validate()) return;
-    toast.success(t('successMessage'));
-      setName('');
-  setTel('');
-  setBedrooms(null);
-  setLanguage(languageOptions[0]);
-  setContact(contactOptions[0]);
-  setErrors({});
+  const [loading, setLoading] = useState(false);
 
-};
 const validate = () => {
   const newErrors = {};
   if (!name.trim()) newErrors.name = t('errors.nameRequired');
@@ -78,6 +69,30 @@ const validate = () => {
   else if (!/^\+?[0-9\s\-]+$/.test(tel)) newErrors.tel = t('errors.telInvalid');
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
+};
+
+const handleSubmit = async () => {
+  if (!validate()) return;
+  setLoading(true);
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, tel, bedrooms, language, contact }),
+    });
+    if (!res.ok) throw new Error();
+    toast.success(t('successMessage'));
+    setName('');
+    setTel('');
+    setBedrooms(null);
+    setLanguage(languageOptions[0]);
+    setContact(contactOptions[0]);
+    setErrors({});
+  } catch {
+    toast.error(t('errorMessage'));
+  } finally {
+    setLoading(false);
+  }
 };
 
   return (
@@ -128,8 +143,8 @@ const validate = () => {
 
       <div className="h-14 mt-4" />
 
-      <button onClick={()=>{handleSubmit()}} className="font-normal  h-14 border border-white/30 text-yellowish text-[16px] tracking-widest uppercase hover:bg-white/10 transition-colors">
-        {t('requestACall')}
+      <button onClick={handleSubmit} disabled={loading} className="font-normal h-14 border border-white/30 text-yellowish text-[16px] tracking-widest uppercase hover:bg-white/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+        {loading ? '...' : t('requestACall')}
       </button>
 
       

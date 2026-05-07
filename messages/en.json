@@ -38,7 +38,8 @@
  
 
 },
- "successMessage": "Your request has been sent"
+ "successMessage": "Your request has been sent",
+ "errorMessage": "Something went wrong, please try again"
 
 },
 "flatSumUp":{
