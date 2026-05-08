@@ -285,7 +285,8 @@ ref={trackRef}
           {flats.map((apartment, index) => (
             <Link
   key={apartment.id}
-  href={`/${locale}/flats/${apartment.id}`}
+  // href={`/${locale}/flats/${apartment.id}`}
+  href={'#'}
   className="flex flex-col bg-yellowish transition duration-300 hover:scale-[1.025] hover:-translate-y-[5px] w-[100vw] sm:w-[393px]"
   draggable={false}
   onClick={(e) => {

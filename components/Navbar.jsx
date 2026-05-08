@@ -22,12 +22,12 @@ const Navbar = () => {
 
 
   return (
-    <header className='bg-black h-20 flex justify-between items-center px-10'>
+    <header className='bg-black h-20 flex justify-between items-center px-10 !text-white'>
 
         <Image src={'/logo.png'} width={180} height={100} alt='' />
 <button 
  onClick={() => switchLocale(locale === 'ka' ? 'en' : 'ka')}
-  style={{ position: 'relative', zIndex: 9999 }} className='font-apecru'
+  style={{ position: 'relative', zIndex: 9999 }} className='font-apecru !text-white'
 >
    {locale === 'ka' ? 'ENG' : 'GEO'}
 </button>

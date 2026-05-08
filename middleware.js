@@ -4,7 +4,8 @@ import { locales, defaultLocale } from './i18n.js';
 export default createMiddleware({
   locales,
   defaultLocale,
-  localePrefix: 'always' // URL-ში ყოველთვის ჩანდეს /ka/ ან /en/
+  localePrefix: 'always' ,
+  localeDetection: false
 });
 
 export const config = {
