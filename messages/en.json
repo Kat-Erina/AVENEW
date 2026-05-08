@@ -8,9 +8,9 @@
 
   "terms": {
     "items": [
-      { "title": "0%", "text": "Internal", "drop": "Installment Plan" },
-      { "title": "1-3%", "text": "Initial", "drop": "Deposit" },
-      { "title": "7%", "text": "Discount", "drop": "on Deposit" }
+      { "title": "0%", "text": "Internal", "drop": "Installment" },
+      { "title": "1-3%", "text": "Downpayment", "drop": "" },
+      { "title": "7%", "text": "Discount", "drop": "on Downpayment" }
     ]
   },
 
@@ -47,7 +47,8 @@
     },
 
     "successMessage": "Your request has been sent",
-    "errorMessage": "An error occurred, please try again"
+    "errorMessage": "An error occurred, please try again",
+    "clear":"Clear"
   },
 
   "flatSumUp": {

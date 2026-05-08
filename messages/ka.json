@@ -37,7 +37,8 @@
 
 },
  "successMessage": "თქვენი მოთხოვნა გაიგზავნა",
- "errorMessage": "შეცდომა მოხდა, სცადეთ თავიდან"
+ "errorMessage": "შეცდომა მოხდა, სცადეთ თავიდან",
+  "clear":"წაშლა"
 },
 "flatSumUp":{
    "items": [

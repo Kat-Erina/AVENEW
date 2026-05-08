@@ -74,10 +74,16 @@ const [trackPadding, setTrackPadding] = useState('0px');
     updateCardWidth();
     updateThumb();
 
-    setTimeout(() => {
-  // updateCardWidth();
+    const onResize = () => {
+  updateCardWidth();
   updateThumb();
-}, 100);
+};
+
+
+
+//     setTimeout(() => {
+//   updateThumb();
+// }, 100);
 
 function updateCardWidth() {
   const firstCard = track.querySelector('a');
@@ -241,7 +247,7 @@ function snapToCard() {
     progressBar.addEventListener('touchstart', onBarTouchStart, { passive: true });
     progressBar.addEventListener('touchmove', onBarTouchMove, { passive: false });
     progressBar.addEventListener('touchend', onBarTouchEnd);
-    window.addEventListener('resize', updateThumb);
+window.addEventListener('resize', onResize);
     wrapper.addEventListener('wheel', onWheel, { passive: false }); 
 
 
@@ -259,7 +265,7 @@ function snapToCard() {
       progressBar.removeEventListener('touchstart', onBarTouchStart);
       progressBar.removeEventListener('touchmove', onBarTouchMove);
       progressBar.removeEventListener('touchend', onBarTouchEnd);
-      window.removeEventListener('resize', updateThumb);
+window.removeEventListener('resize', onResize);
         wrapper.removeEventListener('wheel', onWheel); // ← add here
 
     };
@@ -300,14 +306,16 @@ ref={trackRef}
   <div className="px-4 sm:px-0 bg-yelowish">
     <div className="relative overflow-hidden group" style={{ height: '380px', width: '100%' }}>
   <div className="absolute inset-0 bg-white ">
-    {/* <div className="relative w-full h-full overflow-hidden"> */}
+    <div className="relative w-full h-full overflow-hidden">
 
-        <img
-    src={apartment.image}
-    alt={apartment.name}
-    className="w-full h-full  transition-transform duration-500 group-hover:scale-105 "
-  />
-    {/* </div> */}
+<Image src={apartment.image}
+alt={apartment.image}
+fill
+className="w-full h-full "
+ sizes="(max-width: 640px) calc(100vw - 2rem), 100vw"
+></Image>
+  
+    </div>
   </div>
 </div>
   </div>

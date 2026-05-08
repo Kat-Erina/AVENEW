@@ -12,9 +12,11 @@ import Terms from "@/components/Terms";
 import Image from "next/image";
 import React from "react";
 
-const Home = () => {
+const Home =  () => {
+
   return (
     <div>
+
       <Navbar></Navbar>
       <Hero></Hero>
       <AnimatedSection direction="left" delay={0.2}>

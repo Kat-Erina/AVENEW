@@ -5,12 +5,13 @@ import { useTranslations } from "next-intl";
 const amenties = [
   {
     id: 1,
-    image: "/amenities-1.webp",
-     position: "object-center"
+    image: "/amenities-2.webp",
+      position: "object-center"
   },
   {
     id: 2,
-    image: "/amenities-2.webp",
+  
+      image: "/amenities-1.webp",
      position: "object-[25%]"
   },
   {

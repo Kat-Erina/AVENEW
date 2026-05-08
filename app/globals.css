@@ -125,9 +125,6 @@ html{
   font-display: swap;
 }
 
-/* Mtavruli fallback for Helvetica Neue LT GEO — the font lacks U+1C90-U+1CBF glyphs;
-   text-transform:uppercase on WebKit converts Mkhedruli → Mtavruli codepoints, so we
-   need an explicit fallback for that range to prevent system-font substitution on iOS. */
 @font-face {
   font-family: 'Helvetica Neue LT GEO';
   src: url('/fonts/NotoSerifGeorgian-VariableFont_wdth,wght.ttf') format('truetype');
@@ -149,6 +146,13 @@ html{
   font-weight: 400 !important;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
 
 button:hover{
   cursor: pointer;
