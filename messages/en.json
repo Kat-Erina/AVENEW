@@ -81,5 +81,13 @@
 
   "footer": {
     "rights": "All Rights Reserved"
-  }
+  },
+
+  "metadata":{
+  "title":"Avenew-City's New Avenue", 
+  "description":"New Avenue in Tbilisi", 
+  "keywords":"Avewnew-New Avenue in Tbilisi,Apartments in Tbilisi, Recreational Bridge,Sports & Entertainment,Apartment with excellent conditions,Recreational Zone",
+  "ogTitle":"Avenew-City's New Avenue",
+  "ogDescription":"New Avenue in Tbilisi"
+}
 }

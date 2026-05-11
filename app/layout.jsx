@@ -3,9 +3,9 @@ import './globals.css';
 
 
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+// export function generateStaticParams() {
+//   return locales.map((locale) => ({ locale }));
+// }
 
 export default function RootLayout({ children }) {
   return children;

@@ -14,17 +14,18 @@ const Hero = () => {
     <section className=" h-[92vh] relative ">
      
       <div className="absolute inset-0 bg-linear-to-b from-[#66666670] to-[#00000080] z-10" />
-       <div className=" !text-white h-full flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center 
+       <div className=" !text-white h-full flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center  
        ">
 
-
+{/* <img src='/mob2.webp' className="inset-0 h-full w-full absolute top-0 left-0 object-cover"></img> */}
 <Image
-  src='/hero.webp'
+  src='/mob2.webp'
   fill
-  alt=''
-  className="object-cover lg:hidden
-  absolute top-0 left-0"
+  alt='hero'
+  className="w-full  lg:hidden absolute top-0 left-0"
 />
+
+
 <Image
   src='/hero.webp'
   fill
