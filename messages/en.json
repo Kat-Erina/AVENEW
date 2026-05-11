@@ -17,15 +17,20 @@
   "amenities": {
     "items": [
       {
-        "title": "Agrohub Within the Complex",
+        "title": "Agrohub Within the",
+        "last":"Complex",
         "text": "For Family Shopping"
+        
       },
        {
-        "title": "The First Recreational Bridge",
+        "title": "The First Recreational",
+        "last":"Bridge",
         "text": "For Everyday Relaxation"
+        
       },
       {
-        "title": "Sports & Entertainment Areas",
+        "title": "Sports & Entertainment",
+        "last":"Areas",
         "text": "For an Active Lifestyle"
       }
     ]

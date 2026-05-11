@@ -11,8 +11,28 @@ const Hero = () => {
  const [modalOpen, setModalOpen] = useState(false);
   const t=useTranslations('hero')
   return (
-    <section className="bg-[url(/hero.webp)] bg-center h-[92vh] bg-cover flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center relative">
-      <div className="absolute inset-0 bg-linear-to-b from-[#66666670] to-[#00000080]" />
+    <section className=" h-[92vh] relative ">
+     
+      <div className="absolute inset-0 bg-linear-to-b from-[#66666670] to-[#00000080] z-10" />
+       <div className=" !text-white h-full flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center 
+       ">
+
+
+<Image
+  src='/hero.webp'
+  fill
+  alt=''
+  className="object-cover lg:hidden
+  absolute top-0 left-0"
+/>
+<Image
+  src='/hero.webp'
+  fill
+  alt=''
+  className="object-cover hidden lg:block
+  absolute top-0 left-0"
+/>
+
       <h1 className="text-6xl md:text-6xl font-light  lg:text-[66px] !text-white z-10 leading-[110%] uppercase">
       {t('city')}<br /> {t('avenue')}
       </h1>
@@ -31,7 +51,9 @@ const Hero = () => {
             <Form width="377px" />
           </div>
         </div>
+        
       )}
+      </div>
     </section>
     
   );

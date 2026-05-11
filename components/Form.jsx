@@ -40,7 +40,7 @@ const CustomSelect = ({
           {options.map((opt) => (
             <div
               key={opt}
-              className="px-4 py-2 hover:bg-white/10 cursor-pointer text-yellowish text-[16px] tracking-widest text-center"
+              className="px-4 py-2 hover:bg-white/10 cursor-pointer text-yellowish text-[16px] tracking-widest text-start"
               onClick={() => {
                 onChange(opt);
                 onToggle();
