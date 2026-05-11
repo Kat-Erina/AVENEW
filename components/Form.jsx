@@ -68,7 +68,16 @@ const Form = ({ width = "max-w-md" }) => {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [openSelect, setOpenSelect] = useState(null); // 'bedrooms' | 'language' | 'contact' | null
+  const [openSelect, setOpenSelect] = useState(null);
+  const [formStarted, setFormStarted] = useState(false);
+
+  const trackFormStart = () => {
+    if (formStarted) return;
+    setFormStarted(true);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'form_start' });
+    if (window.fbq) window.fbq('trackCustom', 'FormStart');
+  };
 
   const validate = () => {
     const newErrors = {};
@@ -83,13 +92,17 @@ const Form = ({ width = "max-w-md" }) => {
   const handleSubmit = async () => {
     if (!validate()) return;
     setLoading(true);
+    const eventId = crypto.randomUUID();
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, tel, bedrooms, language, contact }),
+        body: JSON.stringify({ name, tel, bedrooms, language, contact, eventId }),
       });
       if (!res.ok) throw new Error();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_submit' });
+      if (window.fbq) window.fbq('track', 'Lead', {}, { eventID: eventId });
       toast.success(t("successMessage"));
       setName("");
       setTel("");
@@ -97,6 +110,7 @@ const Form = ({ width = "max-w-md" }) => {
       setLanguage(languageOptions[0]);
       setContact(contactOptions[0]);
       setErrors({});
+      setFormStarted(false);
     } catch {
       toast.error(t("errorMessage"));
     } finally {
@@ -114,8 +128,9 @@ const Form = ({ width = "max-w-md" }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          onFocus={trackFormStart}
           placeholder={t("name")}
-          className="font-normal  
+          className="font-normal
      flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none leading-[1.2] "
         />
         <span className="text-yellowish">*</span>
@@ -129,8 +144,9 @@ const Form = ({ width = "max-w-md" }) => {
           type="text"
           value={tel}
           onChange={(e) => setTel(e.target.value)}
+          onFocus={trackFormStart}
           placeholder={t("tel")}
-          className="font-normal  flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none leading-[1.2]  "
+          className="font-normal flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none leading-[1.2]"
         />
         <span className="text-yellowish">*</span>
       </div>

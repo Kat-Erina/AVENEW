@@ -1,12 +1,18 @@
 import { Resend } from 'resend';
+import { createHash } from 'crypto';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const PIXEL_ID = '3973613329435324';
+
+function sha256(value) {
+  return createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
+}
 
 export async function POST(request) {
   try {
-    const { name, tel, bedrooms, language, contact } = await request.json();
+    const { name, tel, bedrooms, language, contact, eventId } = await request.json();
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'AVENEW <noreply@avenew.ge>',
       to: ['marketing@avenew.ge'],
       subject: `ახალი განაცხადი — ${name}`,
@@ -38,6 +44,37 @@ export async function POST(request) {
         </div>
       `,
     });
+
+    if (error) return Response.json({ error: error.message }, { status: 500 });
+
+    const capiToken = process.env.FACEBOOK_CAPI_TOKEN;
+    if (capiToken) {
+      const clientIp =
+        request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+        request.headers.get('x-real-ip') ||
+        '';
+      const userAgent = request.headers.get('user-agent') || '';
+      await fetch(
+        `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${capiToken}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            data: [{
+              event_name: 'Lead',
+              event_time: Math.floor(Date.now() / 1000),
+              event_id: eventId,
+              action_source: 'website',
+              user_data: {
+                ph: [sha256(tel)],
+                client_ip_address: clientIp,
+                client_user_agent: userAgent,
+              },
+            }],
+          }),
+        }
+      ).catch(() => {});
+    }
 
     return Response.json({ success: true });
   } catch {
