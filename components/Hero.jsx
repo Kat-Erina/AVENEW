@@ -17,12 +17,11 @@ const Hero = () => {
        <div className=" !text-white h-full flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center  
        ">
 
-{/* <img src='/mob2.webp' className="inset-0 h-full w-full absolute top-0 left-0 object-cover"></img> */}
 <Image
   src='/mob2.webp'
   fill
   alt='hero'
-  className="w-full  lg:hidden absolute top-0 left-0"
+  className="w-full  lg:hidden absolute top-0 left-0 md:object-cover"
 />
 
 
