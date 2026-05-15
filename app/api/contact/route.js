@@ -10,6 +10,7 @@ function sha256(value) {
 
 export async function POST(request) {
   try {
+    
     const { name, tel, bedrooms, language, contact, eventId } = await request.json();
 
     const { error } = await resend.emails.send({
