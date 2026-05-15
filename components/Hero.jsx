@@ -37,7 +37,7 @@ const Hero = () => {
 />
 
     
-        <img className="absolute z-10 w-75 h-53 bottom-50 lg:w-91.25 bottom-[15vh] lg:bottom-[20vh]" src={`${params.locale==='en'?'Asset 9.svg':'Asset 10.svg'}`}></img>
+        <img className="absolute z-10 w-75 h-53 bottom-50 lg:w-91.25 bottom-[20vh] lg:bottom-[20vh]" src={`${params.locale==='en'?'Asset 9.svg':'Asset 10.svg'}`}></img>
       <RequestCallBtn onClick={()=>{setModalOpen(true)}} text={t('requestCall')} background={"bg-[#E8E6DD]/15"} />
 
               {modalOpen && (
