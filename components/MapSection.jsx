@@ -8,10 +8,10 @@ const MapSection = ({locale}) => {
   return (
 <Link href={mapUrl} target="_blank" rel="noopener noreferrer"  className="block">
 
-  <div className="h-[500px] sm:h-180 overflow-hidden">
+  <div className="h-[500px] sm:h-180 overflow-hidden ">
     <img 
-      src={locale==='ka'? "/map1.png":"/map2.png"} 
-      className="w-full h-full object-cover  sm:scale-100 origin-center"
+      src={locale==='ka'? "/map2.webp":"/map1.webp"} 
+      className="w-full h-full object-cover sm:scale-100 origin-center  "
     />
 
   </div>

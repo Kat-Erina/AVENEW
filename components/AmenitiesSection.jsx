@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const amenties = [
   {
     id: 1,
-    image: "/amenities-2.webp",
+    image: "/amen-2.webp",
       position: "object-center"
   },
   {

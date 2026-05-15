@@ -17,9 +17,9 @@
   "amenities": {
     "items": [
       {
-        "title": "Agrohub Within the",
-        "last":"Complex",
-        "text": "For Family Shopping"
+        "title": "Multifunctional",
+        "last":"Commercial Environment",
+        "text": "For a Comfortable Everyday Life"
         
       },
        {
@@ -59,7 +59,7 @@
   "flatSumUp": {
     "items": [
       { "title": "400,000 sq.m", "text": "Construction Area" },
-      { "title": "3000 Apartments", "text": "Number of Apartments" },
+      { "title": "3 000 Apartments", "text": "Number of Apartments" },
       { "title": "25,000 sq.m", "text": "Recreational Zone" }
     ]
   },

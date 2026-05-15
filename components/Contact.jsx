@@ -31,8 +31,15 @@ const Contact = () => {
           <p className="text-[#776F40] uppercase font-normal text-[16px] ">{t('address')}</p>
         </div>
         <p className="text-[#776F40] font-normal font-normal text-[16px]">info@avenew.ge</p>
+         <section className=" flex flex-row mt-4 gap-[33px]  md:hidden">
+        {socials.map((item) => {
+          return <Link href={item.link} key={item.icon}>
+            <Image src={item.icon} height={34} width={34} alt={item.link}></Image>
+          </Link>
+        })}
       </section>
-      <section className="flex absolute right-[30px] top-[30%] flex-col gap-[33px]">
+      </section>
+      <section className="absolute right-[30px] top-[30%] flex-col gap-[33px] hidden md:flex">
         {socials.map((item) => {
           return <Link href={item.link} key={item.icon}>
             <Image src={item.icon} height={34} width={34} alt={item.link}></Image>

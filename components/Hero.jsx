@@ -5,16 +5,19 @@ import RequestCallBtn from "./RequestCallBtn";
 import { useTranslations } from 'next-intl';
 import Form from "./Form";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 
 
 const Hero = () => {
  const [modalOpen, setModalOpen] = useState(false);
   const t=useTranslations('hero')
+  const params=useParams()
+  console.log(params.locale)
   return (
     <section className=" h-[92vh] relative ">
      
       <div className="absolute inset-0 bg-linear-to-b from-[#66666670] to-[#00000080] z-10" />
-       <div className=" !text-white h-full flex flex-col justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center  
+       <div className=" !text-white h-full flex flex-col relative justify-end gap-20 pl-25 pb-20 max-md:pl-0 max-md:items-center max-md:text-center  
        ">
 
 <Image
@@ -33,9 +36,8 @@ const Hero = () => {
   absolute top-0 left-0"
 />
 
-      <h1 className="text-6xl md:text-6xl font-light  lg:text-[66px] !text-white z-10 leading-[110%] uppercase">
-      {t('city')}<br /> {t('avenue')}
-      </h1>
+    
+        <img className="absolute z-10 w-75 h-53 bottom-50 lg:w-91.25" src={`${params.locale==='en'?'Asset 9.svg':'Asset 10.svg'}`}></img>
       <RequestCallBtn onClick={()=>{setModalOpen(true)}} text={t('requestCall')} background={"bg-[#E8E6DD]/15"} />
 
               {modalOpen && (
