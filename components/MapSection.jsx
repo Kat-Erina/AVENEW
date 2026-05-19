@@ -4,7 +4,7 @@ import React from 'react'
 
 const MapSection = ({locale}) => {
   
-  const mapUrl="https://www.google.com/maps/place/198+Davit+Aghmashenebeli+Ave,+T'bilisi/@41.7198337,44.7898696,20.75z/data=!4m13!1m7!3m6!1s0x404472d30367b303:0x1b6b470c93fc0fc3!2s198+Davit+Aghmashenebeli+Ave,+T'bilisi!3b1!8m2!3d41.7199082!4d44.7895896!3m4!1s0x404472d30367b303:0x1b6b470c93fc0fc3!8m2!3d41.7199082!4d44.7895896!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+  const mapUrl="https://www.google.com/maps?q=41.790672,44.769482"
   return (
 <Link href={mapUrl} target="_blank" rel="noopener noreferrer"  className="block">
 

@@ -8,7 +8,8 @@ const FlatsSumUp = () => {
    const messages = useMessages();
    
    const items = messages.flatSumUp.items; 
-   const images=['/icons/Isolation_Mode.svg', '/icons/Vector.svg','/icons/Isolation_Mode (1).svg']
+   const images=['/icons/Isolation_Mode.svg', '/icons/Vector (2).svg','/icons/Isolation_Mode (1).svg']
+
  
       return (
       <div className="flex flex-col md:flex-row justify-around items-center bg-dark-red">
@@ -17,7 +18,7 @@ const FlatsSumUp = () => {
   <Fragment key={i}>
     <div className="flex-1 flex items-center justify-center p-6 md:p-10">
       <div className="flex flex-col items-center justify-center gap-3 text-gray-500 text-center">
-        <Image src={images[i]} width={50} height={50} alt='' />
+        <Image src={images[i]} width={50} height={50} alt='' className='h-[48px]' />
         <h3 className="text-[40px] text-yellowish font-regular leading-none uppercase">
           {t(`items.${i}.title`)}
         </h3>

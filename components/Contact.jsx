@@ -7,15 +7,18 @@ import React from "react";
 const Contact = () => {
     const t=useTranslations('contact')
   const socials = [
-    {
-      icon: "/icons/Group 9.svg",
-      link: "https://www.facebook.com/",
-    },
-    {
+    
+   { icon: "/icons/Group 12.svg", link: "https://www.facebook.com/profile.php?id=61588976791959" },
+   {
       icon: "/icons/Group 10.svg",
-      link: "https://www.instagram.com/",
+      link: "https://www.instagram.com/ave.new.development/",
     },
-    { icon: "/icons/Group 12.svg", link: "https://www.tiktok.com/" },
+      {
+      icon: "/icons/Group 9.svg",
+      link: "https://www.linkedin.com/company/ave-new-%E2%80%A2-%E1%83%90%E1%83%AE%E1%83%90%E1%83%9A%E1%83%98-%E1%83%92%E1%83%90%E1%83%9B%E1%83%96%E1%83%98%E1%83%A0%E1%83%98/",
+    }
+    
+   
   ];
 
   return (
@@ -41,7 +44,7 @@ const Contact = () => {
       </section>
       <section className="absolute right-[30px] top-[30%] flex-col gap-[33px] hidden md:flex">
         {socials.map((item) => {
-          return <Link href={item.link} key={item.icon}>
+          return <Link href={item.link} target='_blank' key={item.icon}>
             <Image src={item.icon} height={34} width={34} alt={item.link}></Image>
           </Link>
         })}

@@ -37,8 +37,9 @@ const AmenitiesSection = () => {
           <Image
             src={item.image}
             fill
+            sizes="100%"
             alt={t(`items.${i}.title`)}
-            className={`object-cover ${item.position}`}
+            className={`object-cover object-center ${item.position}`}
           />
           {/* Overlay text at bottom */}
           <div className="absolute top-full bottom-50px   left-[5%] flex justify-center -translate-y-[40px] w-[90%]">
