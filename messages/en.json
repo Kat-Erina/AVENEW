@@ -54,6 +54,8 @@
     "successMessage": "Your request has been sent",
     "errorMessage": "An error occurred, please try again",
     "clear":"Clear", 
+    "noResult":"No Result",
+    "search":"Search Country...",
     "countryCodes":[
     { "code": "+93", "flag": "af", "name": "Afghanistan" },
     { "code": "+355", "flag": "al", "name": "Albania" },

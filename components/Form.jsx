@@ -66,6 +66,7 @@ const PhoneInput = ({
   placeholder,
 }) => {
   const { COUNTRIES } = useCountries();
+  const t = useTranslations("form");
 
   const [search, setSearch] = useState("");
 
@@ -128,7 +129,7 @@ const PhoneInput = ({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search Country..."
+              placeholder= {t('search')}
               className="flex-1 bg-transparent text-yellowish text-[16px] tracking-widest placeholder:text-yellowish outline-none font-normal "
             />
             {/* <Search className="w-4 h-4 text-yellowish shrink-0" /> */}
@@ -172,7 +173,7 @@ const PhoneInput = ({
             })}
             {filtered.length === 0 && (
               <div className="px-4 py-3 text-yellowish/60 text-[16px] tracking-widest">
-                No results
+               {t('noResult')}
               </div>
             )}
           </div>

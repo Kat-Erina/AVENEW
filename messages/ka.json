@@ -43,6 +43,8 @@
  "successMessage": "თქვენი მოთხოვნა გაიგზავნა",
  "errorMessage": "შეცდომა მოხდა, სცადეთ თავიდან",
   "clear":"წაშლა",
+   "noResult":"შედეგი არ არის",
+    "search":"მოძებნე ქვეყანა...",
     "countryCodes":[
     { "code": "+93", "flag": "af", "name": "ავღანეთი" },
     { "code": "+355", "flag": "al", "name": "ალბანეთი" },
