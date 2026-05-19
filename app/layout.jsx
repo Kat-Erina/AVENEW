@@ -1,5 +1,7 @@
 import { locales } from "@/i18n";
 import './globals.css';
+import 'flag-icons/css/flag-icons.min.css';
+
 
 
 

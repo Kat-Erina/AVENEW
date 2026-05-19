@@ -12,7 +12,6 @@ const Hero = () => {
  const [modalOpen, setModalOpen] = useState(false);
   const t=useTranslations('hero')
   const params=useParams()
-  console.log(params.locale)
   return (
     <section className=" h-[92vh] relative ">
      

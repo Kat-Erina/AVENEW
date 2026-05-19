@@ -70,7 +70,7 @@ const Home = async ({ params }) => {
         <AmenitiesSection />
       </AnimatedSection>
 
-      <div className="relative flex justify-center bg-dark-red h-[483px] p-6 lg:p-0">
+      <div className="relative flex justify-center bg-dark-red h-[494px] p-6 lg:p-0">
         <div className="hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25">
           <Image src="/Vector (1).png" fill alt=""></Image>
         </div>
