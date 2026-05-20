@@ -15,7 +15,7 @@ export async function POST(request) {
 
     const { error } = await resend.emails.send({
       from: 'AVENEW <noreply@avenew.ge>',
-      to: ['marketing@avenew.ge'],
+      to: ['nalchevanidzekaterina@gmail.com'],
       subject: `ახალი განაცხადი — ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #fff;">

@@ -135,7 +135,17 @@ html{
 }
 
 
+@media (max-width: 388px) {
+  .phone-input {
+    font-size: 15px;
+  }
+}
 
+@media (max-width: 372px) {
+  .phone-input-xxs {
+    font-size: 13px;
+  }
+}
 /* Helvetica classes */
 /* .font-normal */
 

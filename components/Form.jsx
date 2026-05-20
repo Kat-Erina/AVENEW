@@ -17,11 +17,12 @@ const CustomSelect = ({
   isOpen,
   onToggle,
   clearable,
+  className = "w-full"
 }) => {
   const t = useTranslations("form");
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       <div
         className="h-14 px-4 border-b border-white/30 flex items-center justify-between cursor-pointer text-yellowish text-start"
         onClick={onToggle}
@@ -91,7 +92,7 @@ const PhoneInput = ({
       <div className="h-14   flex items-center gap-3 ">
         <button
           type="button"
-          className="flex h-full border-b  border-white/20 items-center gap-1 text-yellowish shrink-0 cursor-pointer flex-1 px-4"
+          className="flex h-full border-b  border-white/20 items-center gap-1 text-yellowish shrink-0 cursor-pointer w-[32%] px-4  justify-between"
           onClick={handleToggle}
         >
           <span className="text-[16px] font-normal tracking-widest">
@@ -103,7 +104,7 @@ const PhoneInput = ({
           </span>{" "}
         </button>
 
-        <div className="flex flex-row gap-1 border-b h-full px-4 items-center  border-white/20">
+        <div className="flex flex-row gap-1 border-b h-full px-4 items-center w-[68%] border-white/20">
           <input
             type="tel"
             value={phoneNumber}
@@ -115,7 +116,7 @@ const PhoneInput = ({
               setSearch("");
             }}
             placeholder={placeholder}
-            className="flex-1 bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none font-normal leading-[1.2]"
+            className="min-w-0 w-full bg-transparent text-yellowish text-[16px] tracking-widest uppercase placeholder:text-yellowish outline-none font-normal leading-[1.2] phone-input phone-input-xxs"
           />
           <span className="text-yellowish shrink-0">*</span>
         </div>
@@ -308,8 +309,9 @@ const Form = ({ width = "max-w-md" }) => {
       </div>
 
       <div className="flex gap-[12px] ">
-        <div className="flex-1">
+        <div className="w-2/5 sm:w-[32%]">
           <CustomSelect
+           
             options={languageOptions}
             value={language}
             onChange={setLanguage}
@@ -319,12 +321,13 @@ const Form = ({ width = "max-w-md" }) => {
             }
           />
         </div>
-        <div className="flex-1">
+        <div className="w-4/5">
           <CustomSelect
             options={contactOptions}
             value={contact}
             onChange={setContact}
             isOpen={openSelect === "contact"}
+             
             onToggle={() =>
               setOpenSelect((prev) => (prev === "contact" ? null : "contact"))
             }
