@@ -33,6 +33,13 @@ export default async function LocaleLayout({ children, params }) {
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDXLQN2L"
             height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
+        <Script id="ga4" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-J67LFG60XE" />
+        <Script id="ga4-config" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-J67LFG60XE');
+        `}</Script>
         <Script id="meta-pixel" strategy="afterInteractive">{`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
