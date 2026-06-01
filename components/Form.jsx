@@ -295,6 +295,7 @@ const Form = ({ width = "max-w-md" }) => {
       )}
 
       <div className="border-b border-white/30">
+      
         <CustomSelect
           options={bedroomOptions}
           value={bedrooms}
