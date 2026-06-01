@@ -77,6 +77,17 @@ export async function POST(request) {
       ).catch(() => {});
     }
 
+    await fetch('https://bitrix.avenew.ge/rest/public/addDeal.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        token: 'xK9#mP2$qL7',
+        name,
+        mobileNum: tel,
+        email: '',
+      }),
+    }).catch(() => {});
+
     return Response.json({ success: true });
   } catch {
     return Response.json({ error: 'Failed to send email' }, { status: 500 });
