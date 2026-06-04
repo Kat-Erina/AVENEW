@@ -77,6 +77,9 @@ export async function POST(request) {
       ).catch(() => {});
     }
 
+    const comLangMap = { 'ქართული': '26', 'English': '27' };
+    const comMediaMap = { 'ზარი': 'call', 'Viber': 'viber', 'WhatsApp': 'whatsapp' };
+
     await fetch('https://bitrix.avenew.ge/rest/public/addDeal.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -85,6 +88,9 @@ export async function POST(request) {
         name,
         mobileNum: tel,
         email: '',
+        wantedRoomAmount: bedrooms ?? '',
+        comLang: comLangMap[language] ?? '',
+        wantedComMedia: comMediaMap[contact] ?? contact,
       }),
     }).catch(() => {});
 
