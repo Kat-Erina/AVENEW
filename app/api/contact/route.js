@@ -78,7 +78,6 @@ export async function POST(request) {
     }
 
 
-
     const comLangMap = { 'ქართული': '26', 'Georgian': '26', 'English': '27' };
     const comMediaMap = { 'ზარი': 'call', 'Call': 'call', 'Viber': 'viber', 'WhatsApp': 'whatsapp' };
 
