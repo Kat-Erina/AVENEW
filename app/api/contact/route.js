@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 import { createHash } from "crypto";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -79,15 +79,15 @@ export async function POST(request) {
       ).catch(() => {});
     }
 
-    const comLangMap = { ქართული: "26", Georgian: "26", English: "27" };
-    const bedroomsMap = { 1: 297, 2: 298, 3: 299, 4: 300, 5: 634, სტუდიო: 301 };
+    const comLangMap = { "ქართული": "26", "Georgian": "26", "English": "27" };
+    const bedroomsMap = { "1": 297, "2": 298, "3": 299, "4": 300, "5": 634, "სტუდიო": 301 };
     const comMediaMap = {
-      ზარი: 293,
-      Call: 293,
-      Viber: 294,
-      viber: 294,
-      WhatsApp: 295,
-      whatsapp: 295,
+      "ზარი": 293,
+      "Call": 293,
+      "Viber": 294,
+      "viber": 294,
+      "WhatsApp": 295,
+      "whatsapp": 295,
     };
 
     await fetch("https://bitrix.avenew.ge/rest/public/addDeal.php", {
