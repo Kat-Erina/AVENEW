@@ -93,7 +93,7 @@ export async function POST(request) {
       ზარი: 293,
       Call: 293,
       Viber: 294,
-      Viber: 294,n      WhatsApp: 295,
+      WhatsApp: 295,
     };
 
     await fetch("https://bitrix.avenew.ge/rest/public/addDeal.php", {
@@ -115,5 +115,6 @@ export async function POST(request) {
     return Response.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
+
 
 
