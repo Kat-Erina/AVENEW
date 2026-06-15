@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { ChevronUp, ChevronDown, Search } from "lucide-react";
 import { useCountries } from "@/app/hooks/useCountries";
 
-const bedroomOptions = [null, "სტუდიო", "1", "2", "3", "4", "5"];
 
 const CustomSelect = ({
   options,
@@ -191,6 +190,7 @@ const Form = ({ width = "max-w-md" }) => {
   const messages = useMessages();
   const languageOptions = messages.form.languageOptions;
   const contactOptions = messages.form.contactOptions;
+  const bedroomOptions = [null, ...messages.form.bedroomOptions];
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [telCountry, setTelCountry] = useState(GEORGIA);

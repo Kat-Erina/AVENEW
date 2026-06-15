@@ -42,6 +42,7 @@
     "bedrooms": "Number of Bedrooms",
     "contactVia": "Request a Call",
     "contactOptions": ["Call", "Viber", "WhatsApp"],
+    "bedroomOptions": ["Studio", "1", "2", "3", "4", "5"],
     "languageOptions": ["Georgian", "English"],
     "requestACall": "Request a Call",
 

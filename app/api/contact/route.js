@@ -80,7 +80,7 @@ export async function POST(request) {
     }
 
     const comLangMap = { "ქართული": "26", "Georgian": "26", "English": "27" };
-    const bedroomsMap = { "1": 297, "2": 298, "3": 299, "4": 300, "5": 634, "სტუდიო": 301 };
+    const bedroomsMap = { "1": 297, "2": 298, "3": 299, "4": 300, "5": 634, "სტუდიო": 301, "Studio": 301 };
     const comMediaMap = {
       "ზარი": 293,
       "Call": 293,

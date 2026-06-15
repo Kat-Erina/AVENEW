@@ -33,6 +33,7 @@
   "bedrooms": "საძინებლების რაოდენობა",
   "contactVia": "მოითხოვე ზარი",
    "contactOptions": ["ზარი", "Viber", "WhatsApp"],
+    "bedroomOptions": ["სტუდიო", "1", "2", "3", "4", "5"],
     "languageOptions": ["ქართული", "English"],
     "requestACall":"მოითხოვე ზარი",
     "errors": {
