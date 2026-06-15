@@ -1,21 +1,21 @@
-import { Resend } from 'resend';
-import { createHash } from 'crypto';
+import { Resend } from "resend";
+import { createHash } from "crypto";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const PIXEL_ID = '3973613329435324';
+const PIXEL_ID = "3973613329435324";
 
 function sha256(value) {
-  return createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
+  return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
 }
 
 export async function POST(request) {
   try {
-    
-    const { name, tel, bedrooms, language, contact, eventId } = await request.json();
+    const { name, tel, bedrooms, language, contact, eventId } =
+      await request.json();
 
     const { error } = await resend.emails.send({
-      from: 'AVENEW <noreply@avenew.ge>',
-      to: ['marketing@avenew.ge'],
+      from: "AVENEW <noreply@avenew.ge>",
+      to: ["marketing@avenew.ge"],
       subject: `ახალი განაცხადი — ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #fff;">
@@ -31,7 +31,7 @@ export async function POST(request) {
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #999;">საძინებლები</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #171717; font-weight: 500;">${bedrooms ?? '—'}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #171717; font-weight: 500;">${bedrooms ?? "—"}</td>
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #999;">ენა</td>
@@ -51,53 +51,61 @@ export async function POST(request) {
     const capiToken = process.env.FACEBOOK_CAPI_TOKEN;
     if (capiToken) {
       const clientIp =
-        request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-        request.headers.get('x-real-ip') ||
-        '';
-      const userAgent = request.headers.get('user-agent') || '';
+        request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+        request.headers.get("x-real-ip") ||
+        "";
+      const userAgent = request.headers.get("user-agent") || "";
       await fetch(
         `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${capiToken}`,
         {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            data: [{
-              event_name: 'Lead',
-              event_time: Math.floor(Date.now() / 1000),
-              event_id: eventId,
-              action_source: 'website',
-              user_data: {
-                ph: [sha256(tel)],
-                client_ip_address: clientIp,
-                client_user_agent: userAgent,
+            data: [
+              {
+                event_name: "Lead",
+                event_time: Math.floor(Date.now() / 1000),
+                event_id: eventId,
+                action_source: "website",
+                user_data: {
+                  ph: [sha256(tel)],
+                  client_ip_address: clientIp,
+                  client_user_agent: userAgent,
+                },
               },
-            }],
+            ],
           }),
-        }
+        },
       ).catch(() => {});
     }
 
+    const comLangMap = { ქართული: "26", Georgian: "26", English: "27" };
+    const bedroomsMap = { 1: 297, 2: 298, 3: 299, 4: 300, 5: 634, სტუდიო: 301 };
+    const comMediaMap = {
+      ზარი: 293,
+      Call: 293,
+      Viber: 294,
+      viber: 294,
+      WhatsApp: 295,
+      whatsapp: 295,
+    };
 
-
-    const comLangMap = { 'ქართული': '26', 'Georgian': '26', 'English': '27' };
-    const comMediaMap = { 'ზარი': 'call', 'Call': 'call', 'Viber': 'viber', 'WhatsApp': 'whatsapp' };
-
-    await fetch('https://bitrix.avenew.ge/rest/public/addDeal.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    await fetch("https://bitrix.avenew.ge/rest/public/addDeal.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        token: 'xK9#mP2$qL7',
+        token: "xK9#mP2$qL7",
         name,
         mobileNum: tel,
-        email: '',
-        wantedRoomAmount: bedrooms ?? '',
-        comLang: comLangMap[language] ?? '',
-        wantedComMedia: comMediaMap[contact] ?? contact,
+        email: "",
+        wantedRoomAmount: bedroomsMap[bedrooms] ?? "",
+        comLang: comLangMap[language] ?? "",
+        wantedComMedia: comMediaMap[contact] ?? "",
       }),
     }).catch(() => {});
 
     return Response.json({ success: true });
   } catch {
-    return Response.json({ error: 'Failed to send email' }, { status: 500 });
+    return Response.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { ChevronUp, ChevronDown, Search } from "lucide-react";
 import { useCountries } from "@/app/hooks/useCountries";
 
-const bedroomOptions = [null, "1", "2", "3", "4", "5"];
+const bedroomOptions = [null, "სტუდიო", "1", "2", "3", "4", "5"];
 
 const CustomSelect = ({
   options,
