@@ -182,6 +182,22 @@
     "address": "198 David Agmashenebeli Alley"
   },
 
+  "navbar": {
+    "contact": "Contact"
+  },
+
+  "contactPage": {
+    "heading": "Get in Touch",
+    "subheading": "Leave your request and our representative will contact you shortly",
+    "metadata": {
+      "title": "Contact — Avenew",
+      "description": "Get in touch with Avenew — leave a request or find us on social media",
+      "keywords": "Avenew contact,get in touch,buy apartment in Tbilisi,Avenew contact information",
+      "ogTitle": "Contact — Avenew",
+      "ogDescription": "Get in touch with Avenew"
+    }
+  },
+
   "footer": {
     "rights": "All Rights Reserved"
   },

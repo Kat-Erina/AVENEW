@@ -1,4 +1,4 @@
-import AmenitiesSection from "@/components/AmenitiesSection";
+﻿import AmenitiesSection from "@/components/AmenitiesSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import Contact from "@/components/Contact";
 import FlatCarousel from "@/components/FlatCarousel";
@@ -13,48 +13,47 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import React from "react";
 
-
 export async function generateMetadata({ params }) {
-  const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'metadata' })
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
   return {
-    title: t('title'),
-    description: t('description'),
-    keywords: t('keywords').split(',').map(k => k.trim()),
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords")
+      .split(",")
+      .map((k) => k.trim()),
     openGraph: {
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      title: t("ogTitle"),
+      description: t("ogDescription"),
       type: "website",
-     siteName: "Avenew",
+      siteName: "Avenew",
     },
     robots: {
       index: true,
       follow: true,
     },
     alternates: {
-      canonical: '/',
+      canonical: "/",
       languages: {
-        'en': '/en',
-        'ka': '/ka'
-      }
+        en: "/en",
+        ka: "/ka",
+      },
     },
 
-      appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "Avenew",
-  },
-    
-  }
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "black-translucent",
+      title: "Avenew",
+    },
+  };
 }
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#192748'
-}
-
+  themeColor: "#192748",
+};
 
 const Home = async ({ params }) => {
   const { locale } = await params;
@@ -103,3 +102,4 @@ const Home = async ({ params }) => {
 };
 
 export default Home;
+
