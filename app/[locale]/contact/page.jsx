@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/AnimatedSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
@@ -13,12 +14,14 @@ const ContactPage = async ({ params }) => {
     <div>
       <Navbar />
       <div className="mb-12.5" />
-      <div className="relative flex justify-center bg-dark-red h-[494px] p-6 lg:p-0">
-        <div className="hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25">
-          <Image src="/Vector (1).png" fill alt=""></Image>
+      <AnimatedSection>
+        <div className="relative flex justify-center bg-dark-red h-[494px] p-6 lg:p-0">
+          <div className="hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25">
+            <Image src="/Vector (1).png" fill sizes="133px" alt=""></Image>
+          </div>
+          <Form width="483px"></Form>
         </div>
-        <Form width="483px"></Form>
-      </div>
+      </AnimatedSection>
       <Contact />
       <Footer />
     </div>

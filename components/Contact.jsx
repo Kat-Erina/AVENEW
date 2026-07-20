@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
     const t=useTranslations('contact')
@@ -22,7 +23,13 @@ const Contact = () => {
   ];
 
   return (
-    <div className="py-12 bg-white relative ">
+    <motion.div
+      className="py-12 bg-white relative "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <section className="bg-creamy flex py-12 justify-center items-center flex-col">
         <h3 className="text-[#776F40]  text-[26px] uppercase text-center flex flex-col ">
           <span>{t('title')}</span>
@@ -49,7 +56,7 @@ const Contact = () => {
           </Link>
         })}
       </section>
-    </div>
+    </motion.div>
   );
 };
 

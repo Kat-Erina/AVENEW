@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { flats } from "@/lib/flats";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function FeaturedApartments() {
   const wrapperRef = useRef(null);
@@ -272,7 +273,13 @@ window.removeEventListener('resize', onResize);
   }, []);
 
   return (
-    <section className="py-10 bg-white">
+    <motion.section
+      className="py-10 bg-white"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div ref={wrapperRef} className="bg-yellowish overflow-hidden pt-12 pb-10 flex flex-col justify-center gap-8">
 
         {/* ── Track ── */}
@@ -373,7 +380,7 @@ className="w-full h-full "
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

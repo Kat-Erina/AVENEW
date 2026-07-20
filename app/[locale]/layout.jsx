@@ -4,6 +4,8 @@ import {locales} from '@/i18n'
 import { getMessages } from 'next-intl/server';
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
+import SmoothScroll from '@/components/SmoothScroll';
+import 'lenis/dist/lenis.css';
 
 
 
@@ -58,12 +60,14 @@ export default async function LocaleLayout({ children, params }) {
             alt=""
           />
         </noscript>
-        <AppProvider>
-             <Toaster position="top-right" />
-          <NextIntlClientProvider messages={messages} locale={locale}>
-            {children}
-          </NextIntlClientProvider>
-        </AppProvider>
+        <SmoothScroll>
+          <AppProvider>
+            <Toaster position="top-right" />
+            <NextIntlClientProvider messages={messages} locale={locale}>
+              {children}
+            </NextIntlClientProvider>
+          </AppProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

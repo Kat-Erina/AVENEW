@@ -61,27 +61,21 @@ const Home = async ({ params }) => {
     <div>
       <Navbar></Navbar>
       <Hero></Hero>
-      <AnimatedSection direction="left" delay={0.2}>
-        <Terms />
-      </AnimatedSection>
-      <AnimatedSection direction="right" delay={0.2}>
-        <AmenitiesSection />
-      </AnimatedSection>
+      <Terms />
+      <AmenitiesSection />
 
-      <div className="relative flex justify-center bg-dark-red h-[494px] p-6 lg:p-0">
-        <div className="hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25">
-          <Image src="/Vector (1).png" fill alt=""></Image>
+      <AnimatedSection>
+        <div className="relative flex justify-center bg-dark-red h-[494px] p-6 lg:p-0">
+          <div className="hidden xl:block absolute bottom-0 lg:left-37.75 w-33.25 h-106.25">
+            <Image src="/Vector (1).png" fill sizes="133px" alt=""></Image>
+          </div>
+          <Form width="483px"></Form>
         </div>
-        <Form width="483px"></Form>
-      </div>
-      <AnimatedSection direction="left" delay={0.2}>
-        <FlatCarousel />
       </AnimatedSection>
+      <FlatCarousel />
       <FlatsSumUp />
-      <AnimatedSection direction="right" delay={0.2}>
-        <Contact />
-      </AnimatedSection>
-      <AnimatedSection direction="left" delay={0.2}>
+      <Contact />
+      <AnimatedSection>
         <div className="pb-12 bg-white">
           <div className="h-[650px] lg:h-[566px] py-10 relative flex justify-center items-center bg-[url(/img4.webp)] bg-bottom   md:bg-cover">
             <div className="absolute inset-0 bg-black/40" />
